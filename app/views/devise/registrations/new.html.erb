@@ -16,6 +16,10 @@
         <% end %><br />
         <%= f.password_field :password, {placeholder: "Password", class: "form-control", id: "passwordInput", autocomplete: "off"} %>
       </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, for: "passwordConfirmationInput" %>
+        <%= f.password_field :password_confirmation, {placeholder: "Retype Password", class: "form-control", id: "passwordConfirmationInput", autocomplete: "off"} %>
+      </div>
       <%= f.submit "Sign up", class: "btn btn-default" %>
     </form>
   <% end %>
