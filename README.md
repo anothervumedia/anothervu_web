@@ -11,8 +11,10 @@ This is the source code for AnotherVu web application.
 ## Running in development
 `bundle exec rails s`
 
-
 ## Code quality
-*coming soon - rspec and robocop instructions*
+*TODO* - rspec and rubocop instructions
+
+## Deployment
+*TODO* - add info about ENV SECRETS
 
 
