@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the source code for AnotherVu web application.
 
-Things you may want to cover:
+## Developer Setup
+- Copy `database.yml.example` to `database.yml`. Get production config from another developer if necessary
+- Install Postgres
+- Create database role in psql: `create role anothervu with CREATEDB LOGIN;`
+- `bundle exec rake db:create db:migrate`
 
-* Ruby version
+## Running in development
+`bundle exec rails s`
 
-* System dependencies
 
-* Configuration
+## Code quality
+*coming soon - rspec and robocop instructions*
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
