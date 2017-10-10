@@ -19,6 +19,7 @@
 .byebug_history
 
 /config/database.yml
+/config/cloudinary.yml
 
 # Environment files that may contain sensitive data
 .env

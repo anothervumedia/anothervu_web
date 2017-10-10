@@ -18,7 +18,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
-gem 'cloudinary'
+gem 'carrierwave', '~> 1.2.1'
+gem 'cloudinary', '~> 1.8.1'
 
 group :development, :test do
   gem 'byebug'
@@ -36,6 +37,7 @@ group :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'vcr'
+  gem 'webmock'
   gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'capybara'
