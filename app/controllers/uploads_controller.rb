@@ -1,13 +1,12 @@
 class UploadsController < ApplicationController
   before_action :authenticate_user!
-  # TODO: add authorization
 
   def new
     @upload = Upload.new
   end
 
   def create
-    @upload = Upload.new(upload_params)
+    @upload = current_user.uploads.build(upload_params)
     if @upload.save
       flash[:success] = "Your content was uploaded."
       redirect_to feed_path
