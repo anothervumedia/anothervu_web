@@ -1,13 +1,17 @@
 <% @page_title = "Feed" %>
+<%= cl_client_hints_meta_tag %>
 
-<div class="container">
+<div class="container" id="feed">
   <h1>Feed</h1>
-  <div class="row">
-    <% @uploads.each do |upload|%>
-      <div class="col-xs-4">
-        <%= cl_image_tag upload.image_url, width: 300, height: 300, crop: :fill %>
-        <div><%= upload.name %></div>
-      </div>
-    <% end %>
-  </div>
+  <% @uploads.each_slice(3) do |upload_group|%>
+    <div class="row feed-row">
+      <% upload_group.each do |upload| %>
+        <div class="col-xs-4 upload">
+          <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
+          <%= cl_image_tag upload.image_url, width: 300, height: 300, crop: :crop %>
+          <div><%= upload.name %></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
