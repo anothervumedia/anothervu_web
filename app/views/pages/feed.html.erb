@@ -2,5 +2,12 @@
 
 <div class="container">
   <h1>Feed</h1>
-  <h3>coming soon..</h1>
+  <div class="row">
+    <% @uploads.each do |upload|%>
+      <div class="col-xs-4">
+        <%= cl_image_tag upload.image_url, width: 300, height: 300, crop: :fill %>
+        <div><%= upload.name %></div>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def feed
+    @uploads = Upload.all
   end
 end

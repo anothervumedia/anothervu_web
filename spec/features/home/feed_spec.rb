@@ -19,6 +19,13 @@ RSpec.feature "Feed" do
 
       expect(page).to have_content("Feed")
     end
+
+    scenario "can see uploads in the feed" do
+      @upload = FactoryGirl.create(:upload)
+      visit feed_path
+
+      expect(page).to have_content(@upload.name)
+    end
   end
 
   context "Unauthenticated user" do
