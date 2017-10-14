@@ -21,6 +21,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'carrierwave', '~> 1.2.1'
 gem 'cloudinary', '~> 1.8.1'
 gem 'kaminari'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug'

@@ -39,10 +39,16 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "+ Upload", new_upload_path %>
+            <%= link_to new_upload_path do %>
+              <i class="fa fa-upload"></i>
+              Upload
+            <% end %>
           </li>
           <li>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+            <%= link_to destroy_user_session_path do %>
+              <i class="fa fa-sign-out"></i>
+              Log Out
+            <% end %>
           </li>
         </ul>
       </div>
