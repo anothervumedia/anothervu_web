@@ -8,6 +8,8 @@ class Upload < ApplicationRecord
 
   before_destroy :delete_cloudinary_asset
 
+  paginates_per 12
+
   def delete_cloudinary_asset
     if self.image?
       Cloudinary::Uploader.destroy(image.my_public_id)

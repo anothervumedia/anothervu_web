@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   end
 
   def feed
-    @uploads = Upload.all
+    @uploads = Upload.all.page params[:page]
   end
 end

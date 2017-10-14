@@ -9,6 +9,15 @@ RSpec.feature "Feed" do
     Warden.test_reset!
   end
 
+  context "Unauthenticated user" do
+    scenario "cannot see the feed and is redirected" do
+      visit feed_path
+
+      expect(page).to_not have_content("Feed")
+      expect(current_path).to eq(new_user_session_path)
+    end
+  end
+
   context "Authenticated user" do
     before(:each) do
       login_as(@user, scope: :user)
@@ -26,14 +35,17 @@ RSpec.feature "Feed" do
 
       expect(page).to have_content(@upload.name)
     end
-  end
 
-  context "Unauthenticated user" do
-    scenario "cannot see the feed and is redirected" do
+    scenario "can paginate the feed" do
+      15.times do |i|
+        FactoryGirl.create(:upload, name: "Upload #{i}")
+      end
+
       visit feed_path
+      expect(page).to have_selector(".upload", count: 12)
 
-      expect(page).to_not have_content("Feed")
-      expect(current_path).to eq(new_user_session_path)
+      click_on "Next"
+      expect(page).to have_selector(".upload", count: 3)
     end
   end
 

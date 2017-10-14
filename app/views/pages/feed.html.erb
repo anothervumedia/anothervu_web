@@ -14,4 +14,6 @@
       <% end %>
     </div>
   <% end %>
+
+  <%= paginate @uploads, window: 2, params: {controller: 'pages', action: 'feed'} %>
 </div>
