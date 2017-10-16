@@ -8,7 +8,8 @@ This is the source code for AnotherVu web application.
 - Install Postgres
 - Create database role in psql: `create role anothervu with CREATEDB LOGIN;`
 - `bundle exec rake db:create db:migrate`
-- `bundle exec rails s`
+- `bundle exec foreman start`
+- visit `localhost:5000`
 
 ## Development process
 
