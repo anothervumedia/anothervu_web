@@ -5,6 +5,7 @@ class Upload < ApplicationRecord
   validates :name, presence: true
 
   belongs_to :user
+  has_many :hearts
 
   before_destroy :delete_cloudinary_asset
 

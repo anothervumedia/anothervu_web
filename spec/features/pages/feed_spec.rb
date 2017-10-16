@@ -47,6 +47,20 @@ RSpec.feature "Feed" do
       click_on "Next"
       expect(page).to have_selector(".upload", count: 3)
     end
+
+    scenario "can heart/favorite an upload", js: true do
+      @upload = FactoryGirl.create(:upload)
+      visit feed_path
+
+      expect(@upload.hearts_count).to eq(0)
+      expect(page).to_not have_css(".upload .heart.favorited")
+
+      page.find(".upload:first-child .heart").click
+      wait_for_ajax
+
+      expect(@upload.reload.hearts_count).to eq(1)
+      expect(page).to have_css(".upload:first-child .heart.favorited")
+    end
   end
 
 end
