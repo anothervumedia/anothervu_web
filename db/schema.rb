@@ -10,29 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015231904) do
+ActiveRecord::Schema.define(version: 20171023001342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "hearts", force: :cascade do |t|
-    t.bigint "upload_id"
     t.bigint "user_id"
     t.datetime "created_at", default: "2017-10-16 01:45:57", null: false
     t.datetime "updated_at", default: "2017-10-16 01:45:57", null: false
-    t.index ["upload_id"], name: "index_hearts_on_upload_id"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_hearts_on_project_id"
     t.index ["user_id"], name: "index_hearts_on_user_id"
   end
 
-  create_table "uploads", force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hearts_count", default: 0
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "uploads", force: :cascade do |t|
     t.string "image"
     t.string "video"
-    t.integer "hearts_count", default: 0
     t.datetime "created_at", default: "2017-10-16 01:45:57", null: false
     t.datetime "updated_at", default: "2017-10-16 01:45:57", null: false
-    t.index ["user_id"], name: "index_uploads_on_user_id"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_uploads_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,7 +65,8 @@ ActiveRecord::Schema.define(version: 20171015231904) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "hearts", "uploads"
+  add_foreign_key "hearts", "projects"
   add_foreign_key "hearts", "users"
-  add_foreign_key "uploads", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "uploads", "projects"
 end
