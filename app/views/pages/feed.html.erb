@@ -6,28 +6,33 @@
 
 <div class="container" id="feed" data-hearts-url="<%= hearts_path %>">
   <h1>Feed</h1>
-  <% @uploads.each_slice(3) do |upload_group|%>
+
+  <% @projects.each_slice(3) do |project_group|%>
     <div class="row feed-row">
-      <% upload_group.each do |upload| %>
-        <div class="col-xs-4 upload" data-id="<%= upload.id %>">
-          <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
-          <%= cl_image_tag upload.image_url, width: 300, height: 300, crop: :crop %>
+      <% project_group.each do |project| %>
+        <div class="col-xs-4 project" data-id="<%= project.id %>">
+          <% if project.uploads.any? %>
+            <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
+            <%= cl_image_tag project.uploads.first.image_url, width: 300, height: 300, crop: :crop %>
 
-          <% if upload.heart_id.present? %>
-            <span class="heart favorited" data-heart-id="<%= upload.heart_id %>">
-              <i class="fa fa-heart"></i>
-            </span>
-          <% else %>
-            <span class="heart">
-              <i class="fa fa-heart-o"></i>
-            </span>
-          <% end %>
+            <% if project.heart_id.present? %>
+              <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
+                <i class="fa fa-heart"></i>
+              </span>
+            <% else %>
+              <span class="heart">
+                <i class="fa fa-heart-o"></i>
+              </span>
+            <% end %>
 
-          <div><%= upload.name %></div>
-        </div>
+            <div>
+              <%= link_to "#{project.name}", project_path(project) %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
 
-  <%= paginate @uploads, window: 2, params: {controller: 'pages', action: 'feed'} %>
+  <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
 </div>

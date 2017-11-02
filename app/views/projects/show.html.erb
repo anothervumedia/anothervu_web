@@ -1,0 +1,14 @@
+<% @page_title = "#{@project.name}" %>
+
+<div class="container">
+  <h3><%= @project.name %></h3>
+  <p><%= @project.description %></p>
+
+  <% @uploads.each do |upload| %>
+    <div class="row upload-row">
+      <div class="col-xs-4 upload" data-id="<%= upload.id %>">
+        <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
+        <%= cl_image_tag upload.image_url, width: 300, height: 300, crop: :crop %>
+    </div>
+  <% end %>
+</div>

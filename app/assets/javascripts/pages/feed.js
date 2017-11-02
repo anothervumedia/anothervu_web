@@ -7,7 +7,7 @@
     },
     handleHeartClick: function () {
       $(".heart").on("click", function () {
-        var uploadId = $(this).parent(".upload").data("id");
+        var projectId = $(this).parent(".project").data("id");
         var $heartEl = $(this);
 
         if ($(this).hasClass("favorited")) {
@@ -19,12 +19,12 @@
           var heartId = $(this).data("heartId");
           AnotherVu.Feed.removeHeart(heartId, $heartEl);
         } else {
-          // Favorite the upload for the user
+          // Favorite the project for the user
           $heartEl.addClass("favorited");
           $heartEl.children("i").removeClass("fa-heart-o").addClass("fa-heart");
           $heartEl.hide();
 
-          AnotherVu.Feed.addHeart(uploadId, $heartEl);
+          AnotherVu.Feed.addHeart(projectId, $heartEl);
         }
       });
     },
@@ -45,14 +45,14 @@
         }
       });
     },
-    addHeart: function (uploadId, $heartEl) {
+    addHeart: function (projectId, $heartEl) {
       var url = $("#feed").data("hearts-url");
 
       $.ajax({
         url: url,
         data: {
           heart: {
-            upload_id: uploadId
+            project_id: projectId
           }
         },
         type: "POST",

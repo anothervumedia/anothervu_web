@@ -1,0 +1,40 @@
+<% @page_title = "Your Projects" %>
+
+<div class="container">
+  <h3>Your Projects</h3>
+  </br>
+
+  <%= link_to new_project_path, class: "btn btn-default" do %>
+    <i class="fa fa-plus"></i>
+    Add Project
+  <% end %>
+  </br>
+  </br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Uploads</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each_with_index do |project, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= project.name %></td>
+          <td><%= project.description %></td>
+          <td><%= project.uploads.count %></td>
+          <td>
+            <%= link_to "Public View", project_path(project) %>
+            <%= link_to "Edit", edit_project_path(project) %>
+            <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: 'Delete project and its uploads?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

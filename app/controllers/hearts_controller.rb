@@ -5,7 +5,7 @@ class HeartsController < ApplicationController
   def create
     @heart = current_user.hearts.build(heart_params)
     if @heart.save
-      # flash[:success] = "Favorited upload."
+      # flash[:success] = "Favorited project."
     else
       flash[:alert] = @heart.errors.full_messages.to_sentence
     end
@@ -19,9 +19,9 @@ class HeartsController < ApplicationController
 
   def destroy
     if @heart.destroy
-      # flash[:success] = "Unfavorited upload."
+      # flash[:success] = "Unfavorited project."
     else
-      flash[:alert] = "Unable to unfavorite upload."
+      flash[:alert] = "Unable to unfavorite project."
     end
 
     respond_to do |format|
@@ -34,7 +34,7 @@ class HeartsController < ApplicationController
   private
 
   def heart_params
-    params.require(:heart).permit(:upload_id)
+    params.require(:heart).permit(:project_id)
   end
 
   def authorize_user!

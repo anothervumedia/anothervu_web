@@ -29,37 +29,37 @@ RSpec.feature "Feed" do
       expect(page).to have_content("Feed")
     end
 
-    scenario "can see uploads in the feed" do
-      @upload = FactoryGirl.create(:upload)
+    scenario "can see projects in the feed" do
+      @project = FactoryGirl.create(:project_with_uploads)
       visit feed_path
 
-      expect(page).to have_content(@upload.name)
+      expect(page).to have_content(@project.name)
     end
 
     scenario "can paginate the feed" do
       15.times do |i|
-        FactoryGirl.create(:upload, name: "Upload #{i}")
+        FactoryGirl.create(:project_with_uploads, name: "project #{i}")
       end
 
       visit feed_path
-      expect(page).to have_selector(".upload", count: 12)
+      expect(page).to have_selector(".project", count: 12)
 
       click_on "Next"
-      expect(page).to have_selector(".upload", count: 3)
+      expect(page).to have_selector(".project", count: 3)
     end
 
-    scenario "can heart/favorite an upload", js: true do
-      @upload = FactoryGirl.create(:upload)
+    scenario "can heart/favorite a project", js: true do
+      @project = FactoryGirl.create(:project_with_uploads)
       visit feed_path
 
-      expect(@upload.hearts_count).to eq(0)
-      expect(page).to_not have_css(".upload .heart.favorited")
+      expect(@project.hearts_count).to eq(0)
+      expect(page).to_not have_css(".project .heart.favorited")
 
-      page.find(".upload:first-child .heart").click
+      page.find(".project:first-child .heart").click
       wait_for_ajax
 
-      expect(@upload.reload.hearts_count).to eq(1)
-      expect(page).to have_css(".upload:first-child .heart.favorited")
+      expect(@project.reload.hearts_count).to eq(1)
+      expect(page).to have_css(".project:first-child .heart.favorited")
     end
   end
 

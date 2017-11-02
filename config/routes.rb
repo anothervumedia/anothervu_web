@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'feed', to: 'pages#feed', as: 'feed'
 
-  resources :uploads, only: [:new, :create]
+  resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :hearts, only: [:create, :destroy]
 end
