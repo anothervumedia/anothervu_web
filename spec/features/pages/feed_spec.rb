@@ -61,6 +61,26 @@ RSpec.feature "Feed" do
       expect(@project.reload.hearts_count).to eq(1)
       expect(page).to have_css(".project:first-child .heart.favorited")
     end
+
+    scenario "can see details of a project from the feed" do
+      @project = FactoryGirl.create(:project_with_uploads)
+
+      # By clicking the name
+      visit feed_path
+      click_on @project.name
+
+      expect(current_path).to eq(project_path(@project))
+      expect(page).to have_content(@project.name)
+      expect(page).to have_content(@project.description)
+
+      # And by clicking the image
+      visit feed_path
+      page.first("a[href='/projects/#{@project.id}']").click
+
+      expect(current_path).to eq(project_path(@project))
+      expect(page).to have_content(@project.name)
+      expect(page).to have_content(@project.description)
+    end
   end
 
 end

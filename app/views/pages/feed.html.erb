@@ -12,8 +12,10 @@
       <% project_group.each do |project| %>
         <div class="col-xs-4 project" data-id="<%= project.id %>">
           <% if project.uploads.any? %>
-            <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
-            <%= cl_image_tag project.uploads.first.image_url, width: 300, height: 300, crop: :crop %>
+            <%= link_to project_path(project) do %>
+              <%# TODO: look into client hints width: :auto, client_hints: true, crop: :scale %>
+              <%= cl_image_tag project.uploads.first.image_url, width: 300, height: 300, crop: :crop %>
+            <% end %>
 
             <% if project.heart_id.present? %>
               <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
