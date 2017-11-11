@@ -1,13 +1,13 @@
 (function ($, window) {
   window.AnotherVu = window.AnotherVu || {}
 
-  AnotherVu.Feed = {
+  AnotherVu.Project = {
     init: function () {
-      AnotherVu.Feed.handleHeartClick();
+      AnotherVu.Project.handleHeartClick();
     },
     handleHeartClick: function () {
-      $(".heart").on("click", function () {
-        var projectId = $(this).parent(".project").data("id");
+      $(".project-heart").on("click", function () {
+        var projectId = $("#showProject").data("project-id");
         var $heartEl = $(this);
 
         if ($(this).hasClass("favorited")) {
@@ -17,19 +17,19 @@
           $heartEl.hide();
 
           var heartId = $(this).data("heartId");
-          AnotherVu.Feed.removeHeart(heartId, $heartEl);
+          AnotherVu.Project.removeHeart(heartId, $heartEl);
         } else {
           // Favorite the project for the user
           $heartEl.addClass("favorited");
           $heartEl.children("i").removeClass("fa-heart-o").addClass("fa-heart");
           $heartEl.hide();
 
-          AnotherVu.Feed.addHeart(projectId, $heartEl);
+          AnotherVu.Project.addHeart(projectId, $heartEl);
         }
       });
     },
     removeHeart: function (heartId, $heartEl) {
-      var url = $("#feed").data("hearts-url") + "/" + heartId;
+      var url = $("#showProject").data("hearts-url") + "/" + heartId;
 
       $.ajax({
         url: url,
@@ -46,7 +46,7 @@
       });
     },
     addHeart: function (projectId, $heartEl) {
-      var url = $("#feed").data("hearts-url");
+      var url = $("#showProject").data("hearts-url");
 
       $.ajax({
         url: url,
@@ -69,6 +69,6 @@
 
   window.AnotherVu = AnotherVu;
 
-  $(document).on('turbolinks:load', AnotherVu.Feed.init);
+  $(document).on('turbolinks:load', AnotherVu.Project.init);
 
 })(jQuery, this);

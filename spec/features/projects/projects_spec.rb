@@ -65,6 +65,21 @@ RSpec.feature "Projects" do
       expect(page).to_not have_content(@project.name)
       expect(Project.count).to eq(0)
     end
+
+    scenario "can view a project and favorite it", js: true do
+      @project = FactoryGirl.create(:project_with_uploads)
+      visit project_path(@project)
+
+      expect(@project.hearts_count).to eq(0)
+      expect(page).to_not have_css(".project-heart.favorited")
+
+      page.find(".project-heart").click
+      wait_for_ajax
+
+      expect(@project.reload.hearts_count).to eq(1)
+      expect(page).to have_css(".project-heart.favorited")
+    end
+
   end
 
   context "Unauthenticated user" do

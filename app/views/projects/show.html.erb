@@ -1,7 +1,23 @@
 <% @page_title = "#{@project.name}" %>
+<% content_for :footer_javascript do  %>
+  <%= javascript_include_tag "pages/project" %>
+<% end %>
 
-<div class="container">
-  <h3><%= @project.name %></h3>
+<div id="showProject" class="container" data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
+  <h3>
+    <span><%= @project.name %></span>
+    <span>
+      <% if @heart.present? %>
+        <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
+          <i class="fa fa-heart"></i>
+        </span>
+      <% else %>
+        <span class="project-heart">
+          <i class="fa fa-heart-o"></i>
+        </span>
+      <% end %> 
+    </span>
+  </h3>
   <p><%= @project.description %></p>
 
   <div class="row project-upload-row">
