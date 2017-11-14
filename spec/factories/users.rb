@@ -12,6 +12,8 @@ FactoryGirl.define do
     #   "Last-#{n}"
     # end
 
+    first_name 'Dexter'
+    last_name 'Morgan'
     password 'letmein123'
     password_confirmation 'letmein123'
     confirmed_at Time.now

@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @creator = @project.user
     @heart = @project.hearts.where(user: current_user).first
     @uploads = @project.uploads
   end

@@ -4,7 +4,7 @@ This is the source code for AnotherVu web application.
 
 ## Developer Setup
 - Copy `database.yml.example` to `database.yml`. Get production config from another developer if necessary
-- Copy `.env.example` to `.env`. Get the .env values from another developer and keep them out of this source control
+- Create 2 files. Copy `.env.example` to `.env` and `.env.test`. Get the .env values from another developer and keep them out of this source control
 - Install Postgres
 - Create database role in psql: `create role anothervu with CREATEDB LOGIN;`
 - `bundle exec rake db:create db:migrate`

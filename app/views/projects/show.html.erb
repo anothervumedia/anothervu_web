@@ -18,6 +18,10 @@
       <% end %> 
     </span>
   </h3>
+  <p>
+    <span>Creator: </span>
+    <span><%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %></span>
+    </p>
   <p><%= @project.description %></p>
 
   <div class="row project-upload-row">

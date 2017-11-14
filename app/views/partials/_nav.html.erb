@@ -37,11 +37,20 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-left">
           <li>
             <%= link_to feed_path do %>
               <i class="fa fa-home"></i>
               All Projects
+            <% end %>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <i class="fa fa-user-circle"></i>
+              Profile
             <% end %>
           </li>
           <li>

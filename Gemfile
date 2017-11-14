@@ -25,7 +25,7 @@ gem 'font-awesome-rails'
 gem 'cocoon'
 
 group :development, :test do
-  # gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.2.1'
   gem 'byebug'
 end
 

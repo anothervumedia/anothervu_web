@@ -1,0 +1,13 @@
+<%= form_for @user do |f| %>
+  <%= f.label :first_name, "First Name" %>
+  <%= f.text_field :first_name %>
+  </br>
+  <%= f.label :last_name, "Last Name" %>
+  <%= f.text_field :last_name %>
+  </br>
+  <%= f.label :biography, "Biography" %>
+  </br>
+  <%= f.text_area :biography, rows: 5, cols: 30 %>
+
+  <%= f.submit "Save" %>
+<% end %>

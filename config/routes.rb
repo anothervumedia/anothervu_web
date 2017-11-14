@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :hearts, only: [:create, :destroy]
+  resources :users, only: [:show, :edit, :update]
 end

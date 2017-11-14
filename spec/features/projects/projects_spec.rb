@@ -80,6 +80,15 @@ RSpec.feature "Projects" do
       expect(page).to have_css(".project-heart.favorited")
     end
 
+    scenario "can navigate to a project creators profile" do
+      @project = FactoryGirl.create(:project_with_uploads)
+      visit project_path(@project)
+
+      click_on "#{@project.user.first_name} #{@project.user.last_name}"
+
+      expect(current_path).to eq(user_path(@project.user))
+    end
+
   end
 
   context "Unauthenticated user" do
