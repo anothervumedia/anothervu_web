@@ -36,6 +36,18 @@ RSpec.feature "Feed" do
       expect(page).to have_content(@project.name)
     end
 
+    scenario "can see the most popular projects first" do
+      @projectA = FactoryGirl.create(:project_with_uploads, name: "Project A", hearts_count: 0)
+      @projectB = FactoryGirl.create(:project_with_uploads, name: "Project B", hearts_count: 5)
+      @projectC = FactoryGirl.create(:project_with_uploads, name: "Project C", hearts_count: 3)
+      visit feed_path
+
+      projects = all('.project > div > a')
+      expect(projects[0].text).to eq(@projectB.name)
+      expect(projects[1].text).to eq(@projectC.name)
+      expect(projects[2].text).to eq(@projectA.name)
+    end
+
     scenario "can paginate the feed" do
       15.times do |i|
         FactoryGirl.create(:project_with_uploads, name: "project #{i}")

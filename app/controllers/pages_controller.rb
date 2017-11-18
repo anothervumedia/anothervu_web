@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @projects = Project.joins(
       "LEFT OUTER JOIN hearts ON projects.id = hearts.project_id AND hearts.user_id = #{current_user.id}")
       .select("projects.*, hearts.id as heart_id")
-      .order("projects.created_at")
+      .order("projects.hearts_count DESC, projects.created_at DESC")
       .page(params[:page])
   end
 end
