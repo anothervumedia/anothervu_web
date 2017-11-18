@@ -23,6 +23,7 @@ gem 'cloudinary', '~> 1.8.1'
 gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'cocoon'
+gem 'pundit'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'

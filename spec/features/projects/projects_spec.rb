@@ -89,6 +89,26 @@ RSpec.feature "Projects" do
       expect(current_path).to eq(user_path(@project.user))
     end
 
+    scenario "cannot edit another user's project" do
+      @another_user = FactoryGirl.create(:user, first_name: "Joe", last_name: "Rogan")
+      @another_user_project = FactoryGirl.create(:project_with_uploads, user: @another_user)
+
+      visit edit_project_path(@another_user_project)
+      
+      expect(page).to have_content("You are not authorized to perform this action.")
+      expect(current_path).to eq(feed_path)
+    end
+
+    scenario "cannot destroy another user's project" do
+      @another_user = FactoryGirl.create(:user, first_name: "Joe", last_name: "Rogan")
+      @another_user_project = FactoryGirl.create(:project_with_uploads, user: @another_user)
+
+      page.driver.submit :delete, "/projects/#{@another_user_project.id}", {}
+      
+      expect(page).to have_content("You are not authorized to perform this action.")
+      expect(current_path).to eq(feed_path)
+    end
+
   end
 
   context "Unauthenticated user" do

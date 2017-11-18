@@ -5,6 +5,7 @@ RSpec.feature "Signing In", :devise do
     @user = FactoryGirl.create(:user)
   end
 
+  # Chrome doesn't seem to be filling in the pw field so this is failing
   scenario "signing in with valid credentials", js: true do
     signin(@user.email, @user.password)
 

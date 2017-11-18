@@ -30,10 +30,12 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def update
     @project = Project.find(params[:id])
+    authorize @project
 
     if @project.update_attributes(project_params)
       redirect_to projects_path, notice: "#{@project.name} updated."
@@ -46,6 +48,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
+    authorize @project
 
     if @project.destroy
       redirect_to projects_path, notice: "Project deleted."

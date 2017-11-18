@@ -50,12 +50,13 @@ RSpec.feature "User Profile" do
       expect(page).to have_content(@another_user.biography)
     end
 
-    # TODO: add authorization
-    xscenario "cannot edit another user's profile" do
+    scenario "cannot edit another user's profile" do
       visit edit_user_path(@another_user)
       
+      expect(page).to have_content("You are not authorized to perform this action.")
       expect(page).to_not have_content("#{@another_user.first_name} #{@another_user.last_name}'s Profile")
       expect(page).to_not have_content(@another_user.biography)
+      expect(current_path).to eq(feed_path)
     end
 
   end
