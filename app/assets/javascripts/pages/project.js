@@ -3,6 +3,8 @@
 
   AnotherVu.Project = {
     init: function () {
+      // Set up cloudinary responsive images
+      $.cloudinary.responsive();
       AnotherVu.Project.handleHeartClick();
     },
     handleHeartClick: function () {

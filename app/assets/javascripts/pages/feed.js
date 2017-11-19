@@ -3,6 +3,8 @@
 
   AnotherVu.Feed = {
     init: function () {
+      // Set up cloudinary responsive images
+      $.cloudinary.responsive();
       AnotherVu.Feed.handleHeartClick();
     },
     handleHeartClick: function () {
