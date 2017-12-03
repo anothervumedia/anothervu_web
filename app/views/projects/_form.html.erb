@@ -5,15 +5,5 @@
   <%= f.label :description, "Description" %>
   </br>
   <%= f.text_area :description, rows: 5, cols: 30 %>
-
-  <h4>Images</h4>
-  <div id="uploads">
-    <%= f.fields_for :uploads do |upload| %>
-      <%= render 'upload_fields', f: upload %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association "Add Image", f, :uploads %>
-    </div>
-  </div>
   <%= f.submit "Save" %>
 <% end %>

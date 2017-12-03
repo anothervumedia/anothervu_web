@@ -1,0 +1,27 @@
+<% @page_title = "Add Image" %>
+<% content_for :footer_javascript do  %>
+  <%= javascript_include_tag "pages/upload" %>
+<% end %>
+
+<div class="container new-upload">
+  <h3>Add Image to <%= @project.name %></h3>
+
+  <%= form_for [@project, @upload] do |f| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <%= f.cl_image_upload(:image, return_delete_token: true) %>
+        <div class="top-10">- OR -</div>
+        <div id="dropZone" class="top-10">
+        <p>Drop Image Here</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="status"></div>
+        <div class="preview"></div>
+      </div>
+    </div>
+    <%= f.submit "Save to Project", class: "top-10" %>
+  <% end %>
+</div>
+
+<%= cloudinary_js_config %>

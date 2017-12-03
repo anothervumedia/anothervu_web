@@ -17,7 +17,7 @@ RSpec.feature "Projects" do
     scenario "can create a project" do
       visit new_project_path
 
-      expect(page).to have_content('New Project')
+      expect(page).to have_content('First, describe your project.')
 
       fill_in "Name", with: "Dope Pic"
       fill_in "Description", with: "This is picture is beyond cool. It was taken in the Spring of 1999."

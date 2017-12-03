@@ -60,9 +60,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, 
-      uploads_attributes: [:id, :image, :image_cache, :video, :_destroy]
-    )
+    params.require(:project).permit(:name, :description)
   end
 
 end

@@ -71,7 +71,6 @@ GEM
     cloudinary (1.8.1)
       aws_cf_signer
       rest-client
-    cocoon (1.2.11)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -310,7 +309,6 @@ DEPENDENCIES
   capybara-selenium
   carrierwave (~> 1.2.1)
   cloudinary (~> 1.8.1)
-  cocoon
   database_cleaner
   devise (~> 4.3.0)
   dotenv-rails (~> 2.2.1)
