@@ -2,7 +2,7 @@
 
 <div class="container">
   <h3><%= "#{@user.first_name} #{@user.last_name}'s Profile" %></h3>
-  <% if %>
+  <% if @user == current_user %>
     <div><%= link_to "Edit", edit_user_path(current_user) %></div>
   <% end %>
   <p><%= @user.biography %></p>

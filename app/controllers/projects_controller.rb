@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      flash[:success] = "Your project was created."
+      flash[:success] = "Your project was created. Now add some images."
       redirect_to project_path(@project)
     else
       flash[:alert] = @project.errors.full_messages.to_sentence
