@@ -7,35 +7,31 @@
 <div id="feed" class="page-container" data-hearts-url="<%= hearts_path %>">
   <h1>Feed</h1>
 
-  <div class="row.row-eq-height feed-row">
+  <div class="row feed-row">
     <% @projects.each do |project| %>
-      <% if project.uploads.any? %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
-          <%= link_to project_path(project) do %>
-            <%= cl_image_tag project.uploads.first.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
-          <% end %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
+        <%= link_to project_path(project) do %>
+          <%= cl_image_tag project.uploads.first.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
+        <% end %>
 
-          <% if project.heart_id.present? %>
-            <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
-              <i class="fa fa-heart"></i>
-            </span>
-          <% else %>
-            <span class="heart">
-              <i class="fa fa-heart-o"></i>
-            </span>
-          <% end %>
+        <% if project.heart_id.present? %>
+          <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
+            <i class="fa fa-heart"></i>
+          </span>
+        <% else %>
+          <span class="heart">
+            <i class="fa fa-heart-o"></i>
+          </span>
+        <% end %>
 
-          <div>
-            <%= link_to "#{project.name}", project_path(project) %>
-          </div>
-        </div>
-      <% else %>
-        <div class="col-xs-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
+        <div>
           <%= link_to "#{project.name}", project_path(project) %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 
-  <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
+  <div class="row">
+    <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
+  </div>
 </div>
