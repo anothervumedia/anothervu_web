@@ -1,3 +1,17 @@
 a {
   color: $red;
 }
+
+.navbar-inverse {
+  background-color: #000;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #A6F500;
+  font-size: 30px;
+}
+

@@ -10,3 +10,19 @@
     color: $black;
   }
 }
+
+body {
+  padding-top: 85px;
+}
+
+.jumbotron {
+  background: url(images/csuExt.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: arial, sans-serif;
+  text-align: left;
+  color: white;
+  color: #A6F500;
+  height: 500px;
+  /*background-color: #ecf0f1;*/
+}
