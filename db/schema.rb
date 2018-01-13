@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20171114134655) do
 
   create_table "hearts", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "created_at", default: "2017-10-16 01:45:57", null: false
-    t.datetime "updated_at", default: "2017-10-16 01:45:57", null: false
+    t.datetime "created_at", default: "2018-01-05 16:21:47", null: false
+    t.datetime "updated_at", default: "2018-01-05 16:21:47", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_hearts_on_project_id"
     t.index ["user_id"], name: "index_hearts_on_user_id"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20171114134655) do
   create_table "uploads", force: :cascade do |t|
     t.string "image"
     t.string "video"
-    t.datetime "created_at", default: "2017-10-16 01:45:57", null: false
-    t.datetime "updated_at", default: "2017-10-16 01:45:57", null: false
+    t.datetime "created_at", default: "2018-01-05 16:21:47", null: false
+    t.datetime "updated_at", default: "2018-01-05 16:21:47", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_uploads_on_project_id"
   end
