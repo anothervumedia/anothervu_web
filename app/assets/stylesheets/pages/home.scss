@@ -3,7 +3,7 @@
 
   h1 {
     margin-top: 300px;
-    color: $red;
+    color: $yellow;
   }
 
   h3 {
@@ -11,34 +11,57 @@
   }
 }
 
+#brand {
+  color: $blue;
+}
+.container {
+  position: relative;
+  color: #ffffff;
+  z-index: 2;
+}
+
 body {
-  padding-top: 85px;
+  padding-top: 50px;
+  background-color: $white;
 }
 
 .jumbotron {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
   background-size: cover;
   background-position: center;
   font-family: arial, sans-serif;
   text-align: left;
-  color: white;
-  height: 500px;
+  color: $white;
   font-weight:100;
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('csuext.jpg')
   /*background-color: #ecf0f1;*/
 }
 
-.content-block {
-    padding:60px 0;
-    width:100%;
+.jumbotron .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    background: $black  ;
+    opacity: 0.5;
 }
 
-.content-block-blue {
-    background:#343b4c;
-    color:#ECF0F1;
+#video-background{
+  position: absolute;
+  height: auto;
+  width: auto;
+  min-height: 100%;
+  min-width: 100%;
+  left: 50%;
+  top: 100%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 1;
 }
 
-.content-block-blue h1 {
-    font-weight:100;
-    text-transform:uppercase;
-    margin-bottom: 30px;
+#photogrid {
+  margin-top: -100px;
 }

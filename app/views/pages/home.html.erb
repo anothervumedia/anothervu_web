@@ -1,12 +1,19 @@
 <% @page_title = "Home" %>
 
 <div class="jumbotron">
+    <div class="overlay"></div>
+    <video id="video-background" preload muted autoplay loop>
+        <source src="assets/oculus.mp4" type="video/mp4">
+        <source src="assets/oculus.ogv" type="video/ogv">
+    </video>
     <div class="container">
-      <h1>What's the story in architecture and design news? <br><br>You are.</h1>
+      <h1>What's the story in architecture and design news? <br><br></h1>
+
+      <h1 id="brand"><strong>You are.</strong></h1>
     </div>
 </div>
 <div>
-  <div class="container" id="photogrid">
+<div class="container" id="photogrid">
   <div class="row">
     <div class="col-lg-4 col-sm-6">
       <div class="thumbnail">
@@ -57,5 +64,6 @@
     </div>
   </div>
 </div>
+
 
 
