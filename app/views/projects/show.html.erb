@@ -32,10 +32,8 @@
         <% end %>
       </span>
     </h3>
-    <p>
       <div class= "col-md-4">Creator: </div>
       <div class= "col-md-4"><%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %></div>
-    </p>
     <p><%= @project.description %></p>
 
     <% if @creator == current_user %>
