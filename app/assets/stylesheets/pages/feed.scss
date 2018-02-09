@@ -1,0 +1,38 @@
+
+#feed {
+  .feed-row {
+    margin-bottom: 15px;
+
+    .project {
+      text-align: center;
+      margin-bottom: 15px;
+      overflow: hidden;
+
+      .heart {
+        position: absolute;
+        top: 10px;
+        right: 22px;
+        font-size: 22px;
+        cursor: pointer;
+        color: $red;
+      }
+    }
+  }
+
+  nav.pagination {
+    display: block;
+    text-align: center;
+  }
+
+.jumbotron {
+  background: url("https://cdn.pixabay.com/photo/2016/01/19/14/53/modern-1149028_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: arial, sans-serif;
+  text-align: left;
+  color: white;
+  color: #A6F500;
+  height: 500px;
+  /*background-color: #ecf0f1;*/
+  }
+}

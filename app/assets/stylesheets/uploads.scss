@@ -1,0 +1,20 @@
+.new-upload {
+  #dropZone {
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 100px; 
+    width: auto;
+
+    p {
+      text-align: center;
+      font-weight: bold;
+      line-height: 90px;
+    }
+  }
+
+  .preview {
+    a.delete_by_token {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<% @page_title = "Feed" %>
+<%= cl_client_hints_meta_tag %>
+<% content_for :footer_javascript do  %>
+  <%= javascript_include_tag "pages/feed" %>
+<% end %>
+
+<div id="feed" class="page-container" data-hearts-url="<%= hearts_path %>">
+  <div class="jumbotron" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= asset_path('csuext.jpg') %>')">
+      <div class="container">
+        <h1>AnotherVU</h1>
+      </div>
+  </div>
+
+  <div class="row feed-row">
+    <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
+        <%= link_to project_path(project) do %>
+          <%= cl_image_tag project.uploads.first.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
+        <% end %>
+
+        <% if project.heart_id.present? %>
+          <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
+            <i class="fa fa-heart"></i>
+          </span>
+        <% else %>
+          <span class="heart">
+            <i class="fa fa-heart-o"></i>
+          </span>
+        <% end %>
+
+        <div>
+          <%= link_to "#{project.name}", project_path(project) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+
+.navbar-inverse {
+  background-color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: $white;
+}
+
+.navbar-inverse .navbar-brand {
+  color: $blue;
+  font-size: 30px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
