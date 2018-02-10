@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :hearts
+
+  protected
+
+    def confirmation_required?
+     false
+    end
 end
