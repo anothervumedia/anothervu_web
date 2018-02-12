@@ -1,12 +1,12 @@
 <%= form_for @user do |f| %>
-  <%= f.label :first_name, "First Name", :class => 'col-sm-6 col-md-3 name' %>
-  <%= f.text_field :first_name, :class => 'col-sm-6 col-md-3 form'%>
-  <%= f.label :last_name, "Last Name", :class => 'col-sm-6 col-md-3 name'%>
-  <%= f.text_field :last_name, :class => 'col-sm-6 col-md-3 form'%>
+  <%= f.label :first_name, "First Name", :class => 'col-sm-12 col-md-12 name' %>
+  <%= f.text_field :first_name, :class => 'col-sm-12 col-md-12 form'%>
+  <%= f.label :last_name, "Last Name", :class => 'col-sm-12 col-md-12 name'%>
+  <%= f.text_field :last_name, :class => 'col-sm-12 col-md-12 form'%>
   </br>
   <%= f.label :biography, "Biography", :class => 'header col-sm-12' %>
   </br>
-  <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio col-sm-12 col-md-6 form' %>
+  <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
 
-  <%= f.submit "Save", :class => 'btn btn-success' %>
+  <%= f.submit "Save", :class => 'd-block btn btn-success col-sm-2 col-sm-10 joe-btn' %>
 <% end %>
