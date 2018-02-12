@@ -10,7 +10,7 @@
       <div class="row project-upload-row">
       <% @uploads.each do |upload| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 upload" data-id="<%= upload.id %>">
-          <%= cl_image_tag src=upload.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
+          <%= image_tag (upload.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank") %>
           <% if @creator == current_user %>
             <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
               <i class="fa fa-trash-o"></i>
