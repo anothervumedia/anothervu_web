@@ -1,32 +1,42 @@
 .edit-container {
-  background: black;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
   margin-top: 20px;
   margin-bottom: 20px;
-  text-align: center;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 4px;
-  box-shadow: 4px 4px $yellow;
+  box-shadow: 4px 4px $blue;
+  text-align: center;
+
 }
+
 
 .user-bio {
   width: 80%;
 }
 
 .header {
-  padding: 10px;
   font-size: 30px;
   color: $blue;
   text-align: center;
+  font-weight: bold;
 }
 
 .name {
   font-size: 20px;
-  color: white;
+  color: black;
 }
 
 .form {
   border-radius: 4px;
   color: black;
+}
+
+.joe-btn {
+  margin-left: 30px;
+  margin-top: 40px;
+  text-align: center;
 }
