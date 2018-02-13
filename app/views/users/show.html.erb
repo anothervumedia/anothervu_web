@@ -6,7 +6,15 @@
   <% if @user == current_user %>
     <div class="col-sm-1"><%= link_to "Edit", edit_user_path(current_user) %></div>
   <% end %>
-
+  <br>
   <h3 class="header col-sm-12">Projects</h3>
-  <p class="col-sm-12">Coming soon..</p>
+  <div class="container">
+    <% @user.projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
+        <div>
+          <%= link_to "#{project.name}", project_path(project) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
