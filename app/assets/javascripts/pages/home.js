@@ -1,4 +1,4 @@
-$("form#login-box").bind ("ajax:success", function (e, data, status, xhr) {
+$("form#login-box").bind("ajax:success", function (e, data, status, xhr) {
     if ( data.success ) {
       //javascript that executes if everything goes o.k.
       $('#sign_in').modal('hide');
@@ -7,4 +7,4 @@ $("form#login-box").bind ("ajax:success", function (e, data, status, xhr) {
     } else {
       alert('failure!');
     }
-}
+});
