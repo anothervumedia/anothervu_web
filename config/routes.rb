@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home', as: 'home'
   get 'feed', to: 'pages#feed', as: 'feed'
+  get 'terms', to: 'pages#terms', as: 'terms'
+  get 'about', to: 'pages#about', as: 'about'
+  get 'privacy', to: 'pages#privacy', as: 'privacy'
+
 
   resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :uploads, only: [:new, :create, :destroy]
