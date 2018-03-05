@@ -1,4 +1,7 @@
 <% @page_title = "Home" %>
+<% content_for :footer_javascript do  %>
+  <%= javascript_include_tag "pages/feed" %>
+<% end %>
 
 <div class="jumbotron">
     <div class="overlay"></div>
