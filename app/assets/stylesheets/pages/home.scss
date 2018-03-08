@@ -24,6 +24,27 @@
   color: #000000;
 }
 
+.fa {
+  padding: 20px 10px 10px 0px;
+  font-size: 20px;
+  width: 30px;
+  color: #000000;
+}
+
+.fa:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+.fa:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+.fa:link {
+  text-decoration: none;
+}
+
 body {
   padding-top: 50px;
   background-color: white;
@@ -70,3 +91,4 @@ body {
 #photogrid {
   margin-top: -100px;
 }
+
