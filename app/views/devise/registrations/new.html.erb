@@ -20,6 +20,7 @@
         <%= f.label :password_confirmation, for: "passwordConfirmationInput" %>
         <%= f.password_field :password_confirmation, {placeholder: "Retype Password", class: "form-control", id: "passwordConfirmationInput", autocomplete: "off"} %>
       </div>
+      <p>By signing up, you confirm that you have read, and agree to, the <strong><%= link_to "Terms and Conditions", terms_path %></strong>.</p>
       <%= f.submit "Sign up", class: "btn btn-default" %>
     </form>
   <% end %>
