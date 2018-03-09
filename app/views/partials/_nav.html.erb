@@ -41,8 +41,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>
-              Log Out
+            Log Out
             <% end %>
           </li>
         </ul>
@@ -50,20 +49,17 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <%= link_to user_path(current_user) do %>
-              <i class="fa fa-user-circle"></i>
-              Profile
+             Profile
             <% end %>
           </li>
           <li>
             <%= link_to projects_path do %>
-              <i class="fa fa-table"></i>
               Your Projects
             <% end %>
           </li>
           <li>
             <%= link_to feed_path do %>
-              <i class="fa fa-home"></i>
-              All Projects
+            All Projects
             <% end %>
           </li>
         </ul>
