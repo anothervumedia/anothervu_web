@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, except: [:home, :terms, :privacy, :about]
+  before_action :authenticate_user!, except: [:home, :terms, :privacy, :about, :contact]
 
   def home
     redirect_to feed_path if user_signed_in?

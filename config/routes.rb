@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'terms', to: 'pages#terms', as: 'terms'
   get 'about', to: 'pages#about', as: 'about'
   get 'privacy', to: 'pages#privacy', as: 'privacy'
+  get 'contact', to: 'pages#contact', as: 'contact'
 
 
   resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
