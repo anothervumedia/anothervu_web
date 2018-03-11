@@ -5,21 +5,10 @@
 
 <div class="container">
   <div id="showProject" class="page-container profile-container" data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
-    <h3>
-      <span><%= @project.name %></span>
-      <div class="row project-upload-row">
-      <% @uploads.each do |upload| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 upload" data-id="<%= upload.id %>">
-          <%= cl_image_tag upload.image_url, width: :auto, height: 200, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
-          <% if @creator == current_user %>
-            <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
-              <i class="fa fa-trash-o"></i>
-              Remove
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+    <h3 id="project-name">
       <span>
         <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
@@ -31,10 +20,41 @@
           </span>
         <% end %>
       </span>
-    </h3>
-      <div class= "col-md-4">Creator: </div>
-      <div class= "col-md-4"><%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %></div>
-    <p><%= @project.description %></p>
+      <span><%= @project.name %></span>
+      </h3>
+      <hr>
+
+      <h4>
+      <div class="row">
+        <div class= "col-md-12"><%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
+        </div>
+      </div>
+      </h4>
+
+      <p><%= @project.description %></p>
+      <hr>
+
+      </div>
+
+      <div class="col-sm-8">
+      <div id="projectsrow" class="row project-upload-row">
+      <% @uploads.each do |upload| %>
+        <div class="col-xs-12 upload" data-id="<%= upload.id %>">
+          <%= cl_image_tag upload.image_url, width: :auto, height: 450, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
+          <% if @creator == current_user %>
+            <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
+              <p id="delete">Delete</p>
+
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+     </div>
+
+
+
 
     <% if @creator == current_user %>
       <div><%= link_to "Add Image", new_project_upload_path(@project) %></div>

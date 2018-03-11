@@ -1,14 +1,31 @@
 #homeContainer {
   text-align: center;
 
-  h1 {
+h1 {
     margin-top: 300px;
     color: $yellow;
   }
 
-  h3 {
+h3 {
     color: $black;
   }
+}
+
+a {
+  color: $black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration:none;
 }
 
 #brand {
