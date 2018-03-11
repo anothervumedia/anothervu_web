@@ -2,9 +2,15 @@
 
 <div class="container profile-container">
   <h3 class="header"><%= "#{@user.first_name} #{@user.last_name}'s Profile" %></h3>
-  <p class="col-sm-11"><%= @user.biography %></p>
-  <% if @user == current_user %>
-    <div class="col-sm-1"><%= link_to "Edit", edit_user_path(current_user) %></div>
+  <div class="row">
+    <p class="col-sm-12"><%= @user.biography %></p>
+    <% if @user == current_user %>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"><%= link_to "Edit", edit_user_path(current_user) %></div>
+  </div>
+
+
   <% end %>
   <br>
   <h3 class="header col-sm-12">Projects</h3>
