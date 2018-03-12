@@ -1,27 +1,42 @@
 <% @page_title = "#{@user.first_name}'s Profile" %>
 
+<div class="container">
 <div class="container profile-container">
-  <h3 class="header"><%= "#{@user.first_name} #{@user.last_name}'s Profile" %></h3>
+  <div class="row">
+    <div class="col-sm-4">
+  <h3 id="profile-name"><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+  <hr>
+
   <div class="row">
     <p class="col-sm-12"><%= @user.biography %></p>
-    <% if @user == current_user %>
   </div>
+  <hr>
   <div class="row">
+    <% if @user == current_user %>
     <div class="col-sm-12"><%= link_to "Edit", edit_user_path(current_user) %></div>
   </div>
-
-
   <% end %>
-  <br>
-  <h3 class="header col-sm-12">Projects</h3>
-  <div class="container">
-    <% @user.projects.each do |project| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 project" data-id="<%= project.id %>">
-        <div>
-          <%= link_to "#{project.name}", project_path(project) %>
-          <%= cl_image_tag project.uploads.first.image_url, width: 200, height: 100, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
-        </div>
-      </div>
-    <% end %>
+  </div>
+  </div>
   </div>
 </div>
+  <br>
+<div class="container">
+  <h3 class="header col-sm-12"></h3>
+  <div class="project-container">
+    <% @user.projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4" data-id="<%= project.id %>">
+        <div>
+          <%= link_to project_path(project) do %>
+          <%= cl_image_tag project.uploads.first.image_url, width: :auto, height: 150, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
+          <% end %>
+        </div>
+        <div>
+      <%= link_to "#{project.name}", project_path(project) %>
+    </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
