@@ -6,7 +6,7 @@
   </br>
   <%= f.label :biography, "Biography", :class => 'header col-sm-12' %>
   </br>
-  <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
+  <%= f.text_area :biography, :maxlength => 200, rows: 5, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
 
   <%= f.submit "Save", :class => 'd-block btn btn-success col-sm-2 col-sm-10 joe-btn' %>
 <% end %>
