@@ -48,6 +48,11 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <%= link_to feed_path do %>
+            Home
+            <% end %>
+          </li>
+          <li>
             <%= link_to user_path(current_user) do %>
              Profile
             <% end %>
@@ -57,11 +62,7 @@
               Your Projects
             <% end %>
           </li>
-          <li>
-            <%= link_to feed_path do %>
-            All Projects
-            <% end %>
-          </li>
+
         </ul>
       </div>
     </div>

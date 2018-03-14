@@ -4,7 +4,8 @@
 <% end %>
 
 <div class="container">
-  <div id="showProject" class="page-container profile-container" data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
+  <div id="showProject" class="page-container profile-container"
+  data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
 
     <div class="row">
       <div class="col-sm-4">
@@ -20,7 +21,17 @@
           </span>
         <% end %>
       </span>
+      <span>
+        <% if @creator == current_user %>
+      <%= link_to edit_project_path(@project) do %>
+    <span title="Edit Your Project"><%= fa_icon "pencil" %></span>
+<% end %>
+      <%= "#{@project.name}" %>
+
+      <% else %>
       <span><%= @project.name %></span>
+      <% end %>
+        </span>
       </h3>
       <hr>
 
@@ -32,7 +43,12 @@
       </h4>
 
       <p><%= @project.description %></p>
+
       <hr>
+      <% if @creator == current_user %>
+
+      <div><%= link_to "Add Image", new_project_upload_path(@project) %></div>
+    <% end %>
 
       </div>
 
@@ -56,8 +72,6 @@
 
 
 
-    <% if @creator == current_user %>
-      <div><%= link_to "Add Image", new_project_upload_path(@project) %></div>
-    <% end %>
+
   </div>
 </div>

@@ -9,5 +9,5 @@ class Project < ApplicationRecord
   paginates_per 12
 
   scope :with_upload, -> { joins(:uploads).group('projects.id') }
-  
+
 end

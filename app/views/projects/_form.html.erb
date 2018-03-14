@@ -1,9 +1,23 @@
 <%= form_for @project do |f| %>
-  <%= f.label :name, "Name", :class => 'col-sm-12 col-md-12 name' %>
+  <div class="edit-profile-form">
+  <div class="row edit-profile">
+  <%= f.label :name, "Title", :class => 'col-sm-12 col-md-12 name' %>
+  </div>
+  <div class="row">
   <%= f.text_field :name, :class => 'user-bio col-sm-10 col-md-6 form'%>
-  </br>
+  </div>
+  <br>
+  <div class="row">
   <%= f.label :description, "Description", :class => 'col-sm-12 col-md-12 name' %>
-  </br>
-  <%= f.text_area :description, rows: 5, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
-  <%= f.submit "Save", :class => 'd-block btn btn-success col-sm-2 joe-btn' %>
+
+  <br>
+
+  <%= f.text_area :description, rows: 3, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
+  </div>
+  </div>
+
+  <br>
+  <div class="row">
+  <%= f.submit "Save", :class => 'btn btn-default col-xs-2' %>
 <% end %>
+  </div>
