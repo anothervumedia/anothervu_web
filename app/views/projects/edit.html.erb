@@ -1,7 +1,8 @@
 <% @page_title = "Edit Project" %>
 
-<div class="container edit-container">
-  <h3 class="header">Edit <%= @project.name %></h3>
+<div class="container new-upload projects-container">
+  <h3 class=>Edit:   <%= @project.name %></h3>
+  <hr>
 
   <%= render partial: "form", locals: {project: @project} %>
 </div>
