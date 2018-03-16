@@ -56,10 +56,13 @@
       <div id="projectsrow" class="row project-upload-row">
       <% @uploads.each do |upload| %>
         <div class="col-xs-12 upload" data-id="<%= upload.id %>">
+          <% if upload.image_url == nil %>
           <%= cl_video_tag(upload.video_url, options = {:width => 400, :height => 300, :crop => :crop,
   :loop => true, :autoplay => true, :poster => false,
   :fallback_content => "Your browser does not support HTML5 video tags"}) %>
+          <% else %>
           <%= cl_image_tag upload.image_url, width: :auto, height: 450, dpr: :auto, responsive: :true, crop: :scale, responsive_placeholder: "blank" %>
+          <% end %>
           <% if @creator == current_user %>
             <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
               <p id="delete">Delete</p>
