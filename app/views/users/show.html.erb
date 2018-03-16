@@ -40,7 +40,7 @@
         <div>
           <%= link_to project_path(project) do %>
           <% if project.uploads.first == nil %>
-          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/YouTube_Diamond_Play_Button.svg/1024px-YouTube_Diamond_Play_Button.svg.png", {:style => "width:auto, height:150px;"}) %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/YouTube_Diamond_Play_Button.svg/1024px-YouTube_Diamond_Play_Button.svg.png">
           <% else %>
           <%= cl_image_tag project.uploads.first.image, width: :auto, height: 150, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
           <% end %>
