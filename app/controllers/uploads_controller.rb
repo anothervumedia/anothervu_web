@@ -12,7 +12,7 @@ class UploadsController < ApplicationController
     authorize @upload
 
     if @upload.save
-      flash[:success] = "Upload was added."
+      flash[:success] = "Upload successful."
       redirect_to project_path(@upload.project)
     else
       @error = @upload.errors.full_messages.join('. ')
