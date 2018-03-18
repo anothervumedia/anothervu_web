@@ -13,7 +13,7 @@ This is the source code for AnotherVu web application.
 
 ## Development process
 
-- Get latest code on the development branch `git checkout development` and `git pull`
+- Get latest code on the development branch `git checkout master` and `git pull`
 - Branch off of development branch `git checkout -b [the_name_of_your_feature]`
 - Code feature with test coverage
 - Run rubocop for consistent style (*TODO* add command)
