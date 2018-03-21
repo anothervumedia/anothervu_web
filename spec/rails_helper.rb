@@ -9,12 +9,11 @@ require 'capybara/rspec'
 require 'vcr'
 require 'webmock/rspec'
 
-# Add additional requires below this line. Rails is not loaded until this point!
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+# This sets Capybara up to use a REMOTE Selenium server 
+Capybara.javascript_driver = :selenium_remote_chrome 
+Capybara.register_driver "selenium_remote_chrome".to_sym do |app|
+ Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://localhost:4445/wd/hub", desired_capabilities: :chrome) 
 end
-
-Capybara.javascript_driver = :chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
