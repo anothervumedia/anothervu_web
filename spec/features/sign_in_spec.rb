@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Signing In", :devise do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   # Chrome doesn't seem to be filling in the pw field so this is failing
