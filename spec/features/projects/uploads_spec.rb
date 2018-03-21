@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Uploads" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   after(:each) do

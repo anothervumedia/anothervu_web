@@ -45,7 +45,7 @@ group :test do
   gem 'rubocop'
   gem 'vcr'
   gem 'webmock'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'capybara-selenium'

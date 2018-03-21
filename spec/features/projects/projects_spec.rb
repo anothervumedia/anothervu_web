@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Projects" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   after(:each) do
@@ -28,8 +28,8 @@ RSpec.feature "Projects" do
     end
 
     scenario "can see a list of their projects" do
-      @project = FactoryGirl.create(:project, user: @user)
-      @project2 = FactoryGirl.create(:project, name: "Glass Bldg", user: @user)
+      @project = FactoryBot.create(:project, user: @user)
+      @project2 = FactoryBot.create(:project, name: "Glass Bldg", user: @user)
       visit projects_path
 
       expect(page).to have_content(@project.name)
@@ -37,7 +37,7 @@ RSpec.feature "Projects" do
     end
 
     scenario "can edit a project" do
-      @project = FactoryGirl.create(:project, user: @user)
+      @project = FactoryBot.create(:project, user: @user)
       visit projects_path
 
       expect(page).to have_content(@project.name)
@@ -54,7 +54,7 @@ RSpec.feature "Projects" do
     end
 
     scenario "can delete a project" do
-      @project = FactoryGirl.create(:project, user: @user)
+      @project = FactoryBot.create(:project, user: @user)
       visit projects_path
 
       expect(page).to have_content(@project.name)
@@ -67,7 +67,7 @@ RSpec.feature "Projects" do
     end
 
     scenario "can view a project and favorite it", js: true do
-      @project = FactoryGirl.create(:project_with_uploads)
+      @project = FactoryBot.create(:project_with_uploads)
       visit project_path(@project)
 
       expect(@project.hearts_count).to eq(0)
@@ -81,7 +81,7 @@ RSpec.feature "Projects" do
     end
 
     scenario "can navigate to a project creators profile" do
-      @project = FactoryGirl.create(:project_with_uploads)
+      @project = FactoryBot.create(:project_with_uploads)
       visit project_path(@project)
 
       click_on "#{@project.user.first_name} #{@project.user.last_name}"
@@ -90,8 +90,8 @@ RSpec.feature "Projects" do
     end
 
     scenario "cannot edit another user's project" do
-      @another_user = FactoryGirl.create(:user, first_name: "Joe", last_name: "Rogan")
-      @another_user_project = FactoryGirl.create(:project_with_uploads, user: @another_user)
+      @another_user = FactoryBot.create(:user, first_name: "Joe", last_name: "Rogan")
+      @another_user_project = FactoryBot.create(:project_with_uploads, user: @another_user)
 
       visit edit_project_path(@another_user_project)
       
@@ -100,8 +100,8 @@ RSpec.feature "Projects" do
     end
 
     scenario "cannot destroy another user's project" do
-      @another_user = FactoryGirl.create(:user, first_name: "Joe", last_name: "Rogan")
-      @another_user_project = FactoryGirl.create(:project_with_uploads, user: @another_user)
+      @another_user = FactoryBot.create(:user, first_name: "Joe", last_name: "Rogan")
+      @another_user_project = FactoryBot.create(:project_with_uploads, user: @another_user)
 
       page.driver.submit :delete, "/projects/#{@another_user_project.id}", {}
       

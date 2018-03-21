@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Feed" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   after(:each) do
@@ -30,16 +30,16 @@ RSpec.feature "Feed" do
     end
 
     scenario "can see projects in the feed" do
-      @project = FactoryGirl.create(:project_with_uploads)
+      @project = FactoryBot.create(:project_with_uploads)
       visit feed_path
 
       expect(page).to have_content(@project.name)
     end
 
     scenario "can see the most popular projects first" do
-      @projectA = FactoryGirl.create(:project_with_uploads, name: "Project A", hearts_count: 0)
-      @projectB = FactoryGirl.create(:project_with_uploads, name: "Project B", hearts_count: 5)
-      @projectC = FactoryGirl.create(:project_with_uploads, name: "Project C", hearts_count: 3)
+      @projectA = FactoryBot.create(:project_with_uploads, name: "Project A", hearts_count: 0)
+      @projectB = FactoryBot.create(:project_with_uploads, name: "Project B", hearts_count: 5)
+      @projectC = FactoryBot.create(:project_with_uploads, name: "Project C", hearts_count: 3)
       visit feed_path
 
       projects = all('.project > div > a')
@@ -50,7 +50,7 @@ RSpec.feature "Feed" do
 
     scenario "can paginate the feed" do
       15.times do |i|
-        FactoryGirl.create(:project_with_uploads, name: "project #{i}")
+        FactoryBot.create(:project_with_uploads, name: "project #{i}")
       end
 
       visit feed_path
@@ -61,7 +61,7 @@ RSpec.feature "Feed" do
     end
 
     scenario "can heart/favorite a project", js: true do
-      @project = FactoryGirl.create(:project_with_uploads)
+      @project = FactoryBot.create(:project_with_uploads)
       visit feed_path
 
       expect(@project.hearts_count).to eq(0)
@@ -75,7 +75,7 @@ RSpec.feature "Feed" do
     end
 
     scenario "can see details of a project from the feed" do
-      @project = FactoryGirl.create(:project_with_uploads)
+      @project = FactoryBot.create(:project_with_uploads)
 
       # By clicking the name
       visit feed_path

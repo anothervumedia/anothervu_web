@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.feature "User Profile" do
   before(:each) do
-    @user = FactoryGirl.create(:user, first_name: "Jimothy", last_name: "Vanderhausen")
-    @another_user = FactoryGirl.create(:user, first_name: "Joe", last_name: "Rogan")
+    @user = FactoryBot.create(:user, first_name: "Jimothy", last_name: "Vanderhausen")
+    @another_user = FactoryBot.create(:user, first_name: "Joe", last_name: "Rogan")
   end
 
   after(:each) do
