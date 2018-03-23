@@ -15,7 +15,7 @@
     <% @projects.each do |project| %>
       <div class="col-xs-12 col-sm-6 col-md-4 project" data-id="<%= project.id %>">
         <%= link_to project_path(project) do %>
-          <%= cl_image_tag project.uploads.first.image_url, width: :auto, height: 250, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
+          <%= cl_image_tag project.uploads.first.image_url, width: :auto, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
         <% end %>
 
         <% if project.heart_id.present? %>
