@@ -15,16 +15,12 @@
   <!--Below is the new code I just added for the contact info, using :first_name as a placeholder-->
   <div class="row">
   <div class="col-sm-12 col-md-4">
-  <%= f.label :first_name, "Email", :class => 'name' %>
-  <%= f.text_field :first_name, :class => 'user-bio form' %>
+  <%= f.label :website, "Website", :class => 'col-sm-12 col-md-12 name'%>
+  <%= f.text_field :website, :class => 'user-bio col-sm-10 col-md-6 form'%>
   </div>
   <div class="col-sm-12 col-md-4">
-  <%= f.label :first_name, "Website", :class => 'name' %>
-  <%= f.text_field :first_name, :class => 'user-bio form' %>
-  </div>
-  <div class="col-sm-12 col-md-4">
-  <%= f.label :first_name, "Phone Number", :class => 'name' %>
-  <%= f.text_field :first_name, :class => 'user-bio form' %>
+  <%= f.label :phone_number, "Phone Number", :class => 'name' %>
+  <%= f.text_field :phone_number, :class => 'user-bio form' %>
   </div>
   </div>
   <br>
@@ -34,19 +30,6 @@
   <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio form' %>
   </div>
   </div>
-  <div class="row">
-  <%= f.label :phone_number, "Phone Number", :class => 'col-sm-12 col-md-12 name'%>
-  </div>
-  <div class="row">
-  <%= f.text_field :phone_number, :class => 'user-bio col-sm-10 col-md-6 form'%>
-  </div>
-  <div class="row">
-  <%= f.label :website, "Website", :class => 'col-sm-12 col-md-12 name'%>
-  </div>
-  <div class="row">
-  <%= f.text_field :website, :class => 'user-bio col-sm-10 col-md-6 form'%>
-  </div>
-
   <br>
   <div class="row">
     <div class="col-xs-8 col-sm-6 col-md-4">
