@@ -3,34 +3,38 @@
 <div class="container css-2s1366">
 <div class="container profile-container">
   <div class="row">
-
-
     <div class="col-sm-4">
-  <h3
+      <hr>
+  <h3 style="margin-top: 0px">
   <span>
         <% if @user == current_user %>
       <%= link_to edit_user_path(current_user) do %>
     <span title="Edit Your Profile"><%= fa_icon "pencil" %></span>
-<% end %>
+    <% end %>
       <%= "#{@user.first_name} #{@user.last_name}" %>
+      <h5><a href="#">raul@astulainc.com</a></h5>
+      <h5><a href="#">www.astulainc.com</a></h5>
+      <h5>(303) 618-1815</h5>
 
       <% else %>
       <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
+      <h5><a href="#">raul@astulainc.com</a></h5>
+      <h5><a href="#">www.astulainc.com</a></h5>
+      <h5>(303) 618-1815</h5>
       <% end %>
         </span>
-
-
   </h3>
-  <hr>
-  <div class="row">
-    <p class="col-sm-12"><%= @user.biography %></p>
+    <hr>
   </div>
-  <hr>
+  <div class="col-sm-8">
+    <br>
+    <br>
+    <p><%= @user.biography %></p>
   </div>
   </div>
   </div>
+
 </div>
-  <br>
 
 <div class="container css-2s1366">
   <h3 class="header col-sm-12"></h3>
