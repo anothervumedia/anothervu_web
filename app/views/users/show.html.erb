@@ -15,12 +15,15 @@
       <%= "#{@user.first_name} #{@user.last_name}" %>
 
       <% else %>
-      <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
+      <span><%= "#{@user.first_name} #{@user.last_name}"%></span>
       <% end %>
         </span>
 
 
   </h3>
+  <div class="row">
+    <p class="col-sm-12"><%= @user.phone_number %></p>
+  </div>
   <hr>
   <div class="row">
     <p class="col-sm-12"><%= @user.biography %></p>
