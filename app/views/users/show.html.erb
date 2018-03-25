@@ -12,20 +12,20 @@
     <span title="Edit Your Profile"><%= fa_icon "pencil" %></span>
     <% end %>
       <%= "#{@user.first_name} #{@user.last_name}" %>
-      <h5><a href="#">raul@astulainc.com</a></h5>
-      <h5><a href="#">www.astulainc.com</a></h5>
-      <h5>(303) 618-1815</h5>
 
       <% else %>
       <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
-      <h5><a href="#">raul@astulainc.com</a></h5>
-      <h5><a href="#">www.astulainc.com</a></h5>
-      <h5>(303) 618-1815</h5>
       <% end %>
         </span>
   </h3>
+  <div class="row">
+    <hr>
+    <p class="col-sm-12"><%= @user.phone_number %></p>
+    <p class="col-sm-12"><%= @user.email %></p>
+    <p class="col-sm-12"><%= @user.website %></p>
     <hr>
   </div>
+  <hr>
   <div class="col-sm-8">
     <br>
     <br>
