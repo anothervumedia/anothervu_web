@@ -1,16 +1,38 @@
 <%= form_for @user do |f| %>
   <div class="edit-profile-form center-form">
   <div class="row edit-profile">
-  <%= f.label :first_name, "First Name", :class => 'col-sm-12 col-md-12 name' %>
+  <hr>
+  <div class="col-sm-12 col-md-6">
+    <%= f.label :first_name, "First Name", :class => 'name' %>
+    <%= f.text_field :first_name, :class => 'user-bio form'%>
   </div>
-  <div class="row">
-  <%= f.text_field :first_name, :class => 'user-bio col-sm-10 col-md-6 form'%>
+  <div class="col-sm-12 col-md-6">
+    <%= f.label :last_name, "Last Name", :class => 'name'%>
+    <%= f.text_field :last_name, :class => 'user-bio form'%>
   </div>
-  <div class="row">
-  <%= f.label :last_name, "Last Name", :class => 'col-sm-12 col-md-12 name'%>
   </div>
+  <br>
+  <!--Below is the new code I just added for the contact info, using :first_name as a placeholder-->
   <div class="row">
-  <%= f.text_field :last_name, :class => 'user-bio col-sm-10 col-md-6 form'%>
+  <div class="col-sm-12 col-md-4">
+  <%= f.label :first_name, "Email", :class => 'name' %>
+  <%= f.text_field :first_name, :class => 'user-bio form' %>
+  </div>
+  <div class="col-sm-12 col-md-4">
+  <%= f.label :first_name, "Website", :class => 'name' %>
+  <%= f.text_field :first_name, :class => 'user-bio form' %>
+  </div>
+  <div class="col-sm-12 col-md-4">
+  <%= f.label :first_name, "Phone Number", :class => 'name' %>
+  <%= f.text_field :first_name, :class => 'user-bio form' %>
+  </div>
+  </div>
+  <br>
+  <div class="row">
+  <div class="col-sm-12">
+  <%= f.label :biography, "Biography", :class => 'name' %>
+  <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio form' %>
+  </div>
   </div>
   <div class="row">
   <%= f.label :phone_number, "Phone Number", :class => 'col-sm-12 col-md-12 name'%>
@@ -27,20 +49,23 @@
 
   <br>
   <div class="row">
-  <%= f.label :biography, "Biography", :class => 'col-sm-12 name' %>
-
-  <%= f.text_area :biography, rows: 5, cols: 30, :class => 'user-bio col-sm-10 col-md-6 form' %>
+    <div class="col-xs-8 col-sm-6 col-md-4">
+    <%= f.submit "Save", :class => 'btn btn-default btn-block' %>
+    <% end %>
+    </div>
   </div>
-</div>
-  <br>
-  <div class="row">
-  <%= f.submit "Save", :class => 'btn btn-default col-xs-2' %>
-<% end %>
-</div>
 
-<br>
-<div class="row destroy-acct">
-  <%= button_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure you want to deactive your account? Your profile, all your information, and all projects will be deleted."}, method: :delete %>
-</div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4 destroy-acct">
+    <%= button_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure you want to deactive your account? Your profile, all your information, and all projects will be deleted."}, method: :delete %>
+  </div>
+  </div>
+  </div>
+
+
+
+
 
 
