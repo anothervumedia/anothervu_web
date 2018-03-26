@@ -24,7 +24,7 @@
       <span>
         <% if @creator == current_user %>
       <%= link_to edit_project_path(@project) do %>
-    <span title="Edit Your Project"><%= fa_icon "pencil" %></span>
+    <span title="Edit Your Project"><%= fa_icon "edit" %></span>
 <% end %>
       <%= "#{@project.name}" %>
 
