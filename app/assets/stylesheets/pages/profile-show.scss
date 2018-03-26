@@ -15,3 +15,11 @@
   text-align: left;
   padding-bottom: 25px;
 }
+
+#emailink a:link,
+#emailink a:hover,
+#emailink a:active,
+#emailink a:visited, {
+text-decoration: none;
+color: $black;
+}

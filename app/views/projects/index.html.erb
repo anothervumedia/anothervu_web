@@ -15,10 +15,10 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Uploads</th>
-        <th>Actions</th>
+        <th style="text-align: center;">Project Name</th>
+        <th style="text-align: center;">Description</th>
+        <th style="text-align: center;">Items Uploaded</th>
+        <th style="text-align: center;">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -27,9 +27,9 @@
           <th scope="row"><%= index + 1 %></th>
           <td><%= project.name %></td>
           <td><%= project.description %></td>
-          <td><%= project.uploads.count %></td>
-          <td>
-            <!-- <%= link_to "Public View", project_path(project) %> -->
+          <td style="text-align: center;"><%= project.uploads.count %></td>
+          <td style="text-align: center;">
+            <%= link_to "View", project_path(project) %>
             <%= link_to "Edit", project_path(project) %>
             <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: 'Delete project and its uploads?' } %>
           </td>
