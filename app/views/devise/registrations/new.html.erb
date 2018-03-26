@@ -1,4 +1,4 @@
-<div class="container css-2s1366" id="input">
+<div class="container css-2s1366 center-form" id="input">
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -21,9 +21,15 @@
         <%= f.password_field :password_confirmation, {placeholder: "Retype Password", class: "form-control", id: "passwordConfirmationInput", autocomplete: "off"} %>
       </div>
       <p>By signing up, you confirm that you have read, and agree to, the <strong><%= link_to "Terms and Conditions", terms_path %></strong>.</p>
-      <%= f.submit "Sign up", class: "btn btn-default" %>
+
+      <div class="row">
+      <div class="col-xs-8 col-sm-6 col-md-4">
+      <%= f.submit "Sign up", class: "btn btn-default btn-block" %>
+      <% end %>
+      </div>
+    </div>
     </form>
-  <% end %>
+
 
   <%= render "devise/shared/links" %>
 </div>

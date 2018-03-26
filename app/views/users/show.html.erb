@@ -4,36 +4,31 @@
 <div class="container profile-container">
   <div class="row">
     <div class="col-sm-4">
-      <hr>
-  <h3 style="margin-top: 0px">
+
+  <h3 style="margin-top: 20px">
   <span>
         <% if @user == current_user %>
       <%= link_to edit_user_path(current_user) do %>
     <span title="Edit Your Profile"><%= fa_icon "pencil" %></span>
     <% end %>
       <%= "#{@user.first_name} #{@user.last_name}" %>
-
       <% else %>
       <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
       <% end %>
         </span>
   </h3>
-  <div class="row">
-    <hr>
+    <div class="row">
+    <p class="col-sm-12" id="emailink"><%= mail_to @user.email %></p>
+    <p class="col-sm-12" id="emailink"><%= link_to "#{@user.website}", "#{@user.website}", :target => "_blank"%></p>
     <p class="col-sm-12"><%= @user.phone_number %></p>
-    <p class="col-sm-12"><%= @user.email %></p>
-    <%= link_to "#{@user.website}", "#{@user.website}", :target => "_blank"%>
-    <hr>
   </div>
   <hr>
-  <div class="col-sm-8">
-    <br>
-    <br>
-    <p><%= @user.biography %></p>
   </div>
-  </div>
-  </div>
+    <div class="col-sm-8" style="margin-top: 20px">
 
+    <p><i> <%= @user.biography %> </i></p>
+  </div>
+  </div>
 </div>
 
 <div class="container css-2s1366">
