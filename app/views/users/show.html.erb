@@ -8,10 +8,10 @@
   <h3 style="margin-top: 20px">
   <span>
         <% if @user == current_user %>
-      <%= link_to edit_user_path(current_user) do %>
-    <span title="Edit Your Profile"><%= fa_icon "edit" %></span>
-    <% end %>
       <%= "#{@user.first_name} #{@user.last_name}" %>
+      <%= link_to edit_user_path(current_user) do %>
+      <span title="Edit Your Profile"><%= fa_icon "edit" %></span>
+      <% end %>
       <% else %>
       <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
       <% end %>
