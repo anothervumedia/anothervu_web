@@ -39,7 +39,7 @@
         <div>
           <%= link_to project_path(project) do %>
           <% if project.uploads.first.nil? %>
-              <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1511061900/lxn1ql46jy8xhngqt8e0.png" class="cover"/></a>
+              <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1522110588/o5yg08mg8vrdgk3b3mhw.jpg" class="cover"/></a>
           <% else %>
               <%= cl_image_tag project.uploads.first.image_url, width: :auto, dpr: :auto, responsive: :true, crop: :fill, secure: :true %>
           <% end %>
