@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  before_validation :smart_add_url_protocol
+  before_validation :smart_add_url_protocol, on: :update
 
   has_many :projects, dependent: :destroy
   has_many :hearts, dependent: :destroy
