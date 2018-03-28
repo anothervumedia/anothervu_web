@@ -14,8 +14,6 @@
         //imageMaxHeight: 600,
         //acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|ico)$/i,
         //maxFileSize: 20000000, // 20MB
-        multiple: true,
-        async: true,
         dropZone: "#dropZone",
         start: function (e) {
           $(".status").text("Starting upload...");
@@ -32,8 +30,6 @@
         $.cloudinary.image(data.result.public_id, {
           format: data.result.format,
           width: "auto",
-          height: 200,
-          multiple: true,
           crop: "scale"
         }).appendTo(preview);
 
