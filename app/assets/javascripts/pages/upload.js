@@ -29,6 +29,7 @@
         var preview = $(".preview").html('');
         $.cloudinary.image(data.result.public_id, {
           format: data.result.format,
+          height: 200,
           width: "auto",
           crop: "scale"
         }).appendTo(preview);
