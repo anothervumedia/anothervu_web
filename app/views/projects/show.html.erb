@@ -13,6 +13,7 @@
       <span>
         <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
+            <%= @project.hearts.count %>
             <i class="fa fa-heart"></i>
           </span>
         <% else %>
