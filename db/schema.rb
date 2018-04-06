@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325194201) do
+ActiveRecord::Schema.define(version: 20180406215036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_comments_on_project_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "hearts", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "created_at", default: "2018-02-09 20:49:24", null: false
-    t.datetime "updated_at", default: "2018-02-09 20:49:24", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_hearts_on_project_id"
     t.index ["user_id"], name: "index_hearts_on_user_id"
@@ -37,8 +47,8 @@ ActiveRecord::Schema.define(version: 20180325194201) do
   create_table "uploads", force: :cascade do |t|
     t.string "image"
     t.string "video"
-    t.datetime "created_at", default: "2018-02-09 20:49:24", null: false
-    t.datetime "updated_at", default: "2018-02-09 20:49:24", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_uploads_on_project_id"
   end
@@ -70,6 +80,8 @@ ActiveRecord::Schema.define(version: 20180325194201) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
   add_foreign_key "hearts", "projects"
   add_foreign_key "hearts", "users"
   add_foreign_key "projects", "users", on_delete: :cascade
