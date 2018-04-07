@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
     @creator = @project.user
     @heart = @project.hearts.where(user: current_user).first
     @uploads = @project.uploads
+    @comments = Comment.where(project_id: @project).order("created_at DESC")
   end
 
   def edit

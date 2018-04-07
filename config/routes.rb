@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :uploads, only: [:new, :create, :destroy]
+    resources :comments
   end
   resources :hearts, only: [:create, :destroy]
   resources :users, only: [:show, :edit, :update]
