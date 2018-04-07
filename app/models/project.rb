@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :uploads, dependent: :destroy
   has_many :hearts, dependent: :destroy
+  has_many :comments
 
   validates :name, presence: true
   validates :description, presence: true
