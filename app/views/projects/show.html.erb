@@ -16,9 +16,13 @@
     <span title="Edit Your Project"><%= fa_icon "edit" %></span>
 <% end %>
       <%= "#{@project.name}" %>
+      <br>
+      <%= @project.location %>
 
       <% else %>
       <span><%= @project.name %></span>
+      <span><%= @project.location %></span>
+
       <% end %>
         </span>
       </h3>
