@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :find_project
-  before_action :find_comment, only: [:destroy, :edit, :update]
+  before_action :find_comment, only: [:destroy, :edit, :update, :comment_owner]
+  before_action :comment_owner, only: [:destroy, :edit, :update]
 
   def create
     @comment = @project.comments.create(params[:comment].permit(:content))
@@ -38,5 +39,12 @@ class CommentsController < ApplicationController
 
   def find_comment
     @comment = @project.comments.find(params[:id])
+  end
+
+  def comment_owner
+    unless current_user.id == @comment.user_id
+      flash[:notice] = "You can only edit or delete your own comments."
+      redirect_to @project
+    end
   end
 end
