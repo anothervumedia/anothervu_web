@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   has_many :hearts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
 
   protected

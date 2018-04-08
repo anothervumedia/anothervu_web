@@ -1,4 +1,8 @@
-<%= render 'comments/form'  %>
+<h2> This project has <%= pluralize(@comments.count, "Comment")%></h2>
+
+<%= if user.signed_in? %>
+  <%= render 'comments/form'  %>
+<% end %>
 <br>
 <% @comments.each do |comment| %>
   <% if comment.user.first_name.nil? %>
