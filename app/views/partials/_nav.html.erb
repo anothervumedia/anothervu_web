@@ -61,8 +61,18 @@
             |
           </li>
           <li>
-            <%= link_to user_path(current_user) do %>
-             <%= current_user.first_name %>
+            <% if current_user.first_name == "" %>
+               <%= link_to user_path(current_user) do %>
+                <%= current_user.email %>
+                <% end %>
+            <% elsif current_user.first_name.nil? %>
+                <%= link_to user_path(current_user) do %>
+                <%= current_user.email %>
+                <% end %>
+            <% else %>
+              <%= link_to user_path(current_user) do %>
+              <%= current_user.first_name %>
+              <% end %>
             <% end %>
           </li>
         </ul>
