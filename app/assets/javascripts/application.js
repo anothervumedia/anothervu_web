@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require cloudinary
+//= require social-share-button
 //= require_tree .
-

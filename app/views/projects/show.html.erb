@@ -39,7 +39,7 @@
             <i class="fa fa-heart-o" title="Like This Project"></i>
           </span>
         <% end %>
-        <a href="#"><i class="fa fa-share" title="Share - Coming Soon"></i></a>
+        <%= social_share_button_tag(@project.name, :allow_sites => %w(twitter facebook google_plus reddit email tumblr linkedin)) %>
       </h4>
       <hr>
       <p><%= @project.description %></p>
