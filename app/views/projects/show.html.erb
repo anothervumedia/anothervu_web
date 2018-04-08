@@ -11,18 +11,6 @@
       <div class="col-sm-4">
     <h3 id="project-name">
       <span>
-        <% if @heart.present? %>
-          <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
-            <%= @project.hearts.count %>
-            <i class="fa fa-heart"></i>
-          </span>
-        <% else %>
-          <span class="project-heart">
-            <i class="fa fa-heart-o"></i>
-          </span>
-        <% end %>
-      </span>
-      <span>
         <% if @creator == current_user %>
       <%= link_to edit_project_path(@project) do %>
     <span title="Edit Your Project"><%= fa_icon "edit" %></span>
@@ -34,33 +22,38 @@
       <% end %>
         </span>
       </h3>
-      <hr>
-
       <h4>
       <div class="row">
         <div class= "col-md-12">by <%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
         </div>
       </div>
       </h4>
-
+      <h4>
+        <% if @heart.present? %>
+          <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
+            <%= @project.hearts.count %>
+            <i class="fa fa-heart" title="Unlike This Project"></i>
+          </span>
+        <% else %>
+          <span class="project-heart">
+            <i class="fa fa-heart-o" title="Like This Project"></i>
+          </span>
+        <% end %>
+        <a href="#"><i class="fa fa-share" title="Share - Coming Soon"></i></a>
+      </h4>
+      <hr>
       <p><%= @project.description %></p>
 
-      <hr>
+
       <% if @creator == current_user %>
 
-      <div><%= link_to "Add Photo", new_project_upload_path(@project) %></div>
+      <!-- <div><%= link_to "Add Photo", new_project_upload_path(@project) %></div> -->
     <% end %>
     <br>
-    <br>
+    <hr>
     <div class="row">
     <div class="col-sm-12 col-md-12">
-      <!-- Comments Placeholder -->
-<style type="text/css">
-textarea.html-text-box {background-color:#ffffff;background-image:url(http://);background-repeat:no-repeat;background-attachment:fixed;border-width:1;border-style:solid;border-color:#cccccc;font-family:Arial;font-size:14pt;color:#000000;}
-input.html-text-box {background-color:#ffffff;font-family:Arial;font-size:12pt;color:#000000; margin-right: 5px; opacity: .4}
-</style>
-<form><textarea cols="40" rows="2" style="font-style: italic; opacity: .4">Comments & Feedback Coming Soon</textarea><br><input type="submit" value="Submit" class="html-text-box"><input type="reset" value="Reset" class="html-text-box"></form>
-      <!-- End of Comments Placeholder -->
+      <%= render 'comments/comment' %>
     </div>
     </div>
 
@@ -83,7 +76,7 @@ input.html-text-box {background-color:#ffffff;font-family:Arial;font-size:12pt;c
     </div>
      </div>
 
-       <%= render 'comments/comment' %>
+
 
 
   </div>
