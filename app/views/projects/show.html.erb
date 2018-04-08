@@ -33,6 +33,7 @@
       </div>
       </h4>
       <h4>
+        <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
         <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
             <%= @project.hearts.count %>
@@ -43,7 +44,6 @@
             <i class="fa fa-heart-o" title="Like This Project"></i>
           </span>
         <% end %>
-        <%= social_share_button_tag(@project.name, :allow_sites => %w(twitter facebook google_plus reddit email tumblr linkedin)) %>
       </h4>
       <hr>
       <p><%= @project.description %></p>
@@ -53,7 +53,6 @@
 
       <!-- <div><%= link_to "Add Photo", new_project_upload_path(@project) %></div> -->
     <% end %>
-    <br>
     <hr>
     <div class="row">
     <div class="col-sm-12 col-md-12">
