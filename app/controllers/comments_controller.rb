@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_project
-  before_action :find_comment, only: [:destroy]
+  before_action :find_comment, only: [:destroy, :edit, :update]
 
   def create
     @comment = @project.comments.create(params[:comment].permit(:content))
@@ -17,6 +17,17 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     redirect_to project_path(@project)
+  end
+
+  def edit
+  end
+
+  def update
+    if @comment.update(params[:comment].permit(:content))
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
   end
 
   private
