@@ -35,7 +35,7 @@
   <h3 class="header col-sm-12"></h3>
   <div class="project-container">
     <% @user.projects.each do |project| %>
-      <div class="col-xs-12 col-sm-6 col-md-4" data-id="<%= project.id %>">
+      <div class="col-sm-7 col-md-5 col-lg-4" data-id="<%= project.id %>">
         <div>
           <%= link_to project_path(project) do %>
           <% if project.uploads.first.nil? %>

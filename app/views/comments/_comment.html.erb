@@ -1,7 +1,13 @@
+<%= render 'comments/form'  %>
+<br>
 <% @comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <%= link_to "Edit", edit_project_comment_path(comment.project, comment) %>
-  <%= link_to "Delete", [comment.project, comment], method: :delete %>
+
+  <%= comment.content %>
+  <ul>
+    <p><%= link_to "Edit", edit_project_comment_path(comment.project, comment) %></p>
+    <p><%= link_to "Delete", [comment.project, comment], method: :delete %></p>
+  </ul>
 <% end %>
 
-<%= render 'comments/form'  %>
+
+

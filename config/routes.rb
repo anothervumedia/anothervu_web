@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'pages#home', as: 'home'
   get 'feed', to: 'pages#feed', as: 'feed'
   get 'terms', to: 'pages#terms', as: 'terms'
