@@ -51,17 +51,20 @@
             Home
             <% end %>
           </li>
-          <li>
-            <%= link_to user_path(current_user) do %>
-             <%= current_user.email %>
-            <% end %>
-          </li>
+
           <li>
             <%= link_to projects_path do %>
               Your Projects
             <% end %>
           </li>
-
+          <li class="divider">
+            |
+          </li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+             <%= current_user.first_name %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
