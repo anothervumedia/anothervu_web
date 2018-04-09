@@ -6,9 +6,17 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  accepts_nested_attributes_for :uploads, allow_destroy: true
 
   paginates_per 12
 
   scope :with_upload, -> { joins(:uploads).group('projects.id') }
 
+  def self.search(search)
+    if search
+        where(["name LIKE ?", "%#{search}%"])
+    else
+      all
+    end
+  end
 end

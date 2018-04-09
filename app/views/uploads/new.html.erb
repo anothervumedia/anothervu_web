@@ -11,18 +11,18 @@
   </div>
 
   <div class="col-sm-8">
-  <%= form_for [@project, @upload] do |f| %>
+  <%= form_for [@project, @upload], html:{multipart: true} do |f| %>
     <div class="edit-profile-form">
       <div class="row edit-profile" id="profile-margin">
       <div class="col-sm-12 col-md-8">
         <%= f.cl_image_upload(:image, return_delete_token: true, :html => { :multiple => true }) %>
         <%= f.submit "Save", :class => 'btn btn-default btn-block top-10' %>
-        <% end %>
         <div class="top-10">- OR -</div>
         <div id="dropZone" class="top-10">
         <p>Drag/Drop Files Here</p>
         </div>
       </div>
+  <% end %>
 
       <div class="col-xs-12 col-sm-6">
         <div class="status"></div>
@@ -38,3 +38,17 @@
   </div>
 </div>
 
+<script>
+  $("#new_upload").on("submit", function (e) {
+     // e.preventDefault();
+
+     $("input[name='upload[image]']").each(function (index) {
+          var inputName = $(this).attr('name');
+          var inputNewName =  inputName +'[' + index + ']';
+          $(this).attr('name', inputNewName);
+          console.log($(this).val(), index)
+     });
+
+     // $(this).submit();
+  });
+</script>
