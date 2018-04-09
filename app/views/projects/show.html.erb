@@ -51,9 +51,6 @@
     </div>
       </div>
       <div class="col-xs-12 col-sm-11 col-md-8">
-       <% if @creator = current_user && @project.uploads == [] %>
-        <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
-      <% end %>
       <div id="projectsrow" class="row project-upload-row">
       <% @uploads.each do |upload| %>
         <div class="col-xs-12 upload" data-id="<%= upload.id %>">
@@ -67,6 +64,9 @@
         </div>
       <% end %>
     </div>
+      <% if @creator = current_user && @project.uploads == [] %>
+        <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
+      <% end %>
     </div>
      </div>
 
