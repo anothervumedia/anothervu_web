@@ -26,7 +26,9 @@
         }
       }).off("cloudinarydone").on("cloudinarydone", function (e, data) {
         $(".status").text("");
+
         var preview = $(".preview").html('');
+
         $.cloudinary.image(data.result.public_id, {
           format: data.result.format,
           height: 200,
@@ -49,6 +51,8 @@
               $('.status').text("Cannot delete image");
             });
           });
+
+
 
         // var upload = data.result;
 

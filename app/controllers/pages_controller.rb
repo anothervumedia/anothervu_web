@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def feed
+    @projects = Project.search(params[:search])
     @projects = Project.joins(
       "LEFT OUTER JOIN hearts ON projects.id = hearts.project_id AND hearts.user_id = #{current_user.id} " +
       "INNER JOIN (#{Project.with_upload.to_sql}) as p ON p.id = projects.id")
