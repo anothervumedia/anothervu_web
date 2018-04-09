@@ -1,37 +1,37 @@
 <%= form_for @project do |f| %>
   <div class="edit-profile-form">
-
-  <div class="row edit-profile" id="profile-margin">
-  <div class="col-sm-12 col-md-4">
-    <%= f.label :name, "Title", :class => ' name' %>
+    <div class="row edit-profile" id="profile-margin">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :name, "Title", :class => ' name' %>
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <%= f.text_field :name, :class => 'user-bio form'%>
+        <p style="opacity:.4"><i>(Required)</i></p>
+      </div>
+    </div>
+  <br>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :location, "Location", :class => ' name' %>
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <%= f.text_field :location, :class => 'user-bio form'%>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-12 col-md-8">
-    <%= f.text_field :name, :class => 'user-bio form'%>
-  </div>
-  <div class="col-sm-12 col-md-4">
-    <%= f.label :location, "Location", :class => ' name' %>
-  </div>
-  <div class="col-sm-12 col-md-8">
-    <%= f.text_field :location, :class => 'user-bio form'%>
-  </div>
-  </div>
-  </div>
-
   <br>
   <div class="row">
-  <div class="col-sm-12 col-md-2">
-  <%= f.label :description, "Description or Comments", :class => ' name' %>
+    <div class="col-sm-12 col-md-2">
+      <%= f.label :description, "Description or Comments", :class => ' name' %>
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <%= f.text_area :description, rows: 5, cols: 30, :class => 'user-bio form' %>
+    </div>
   </div>
-  <div class="col-sm-12 col-md-10">
-  <%= f.text_area :description, rows: 5, cols: 30, :class => 'user-bio form' %>
-  </div>
-  </div>
-
-
   <br>
   <div class="row">
-  <div class="col-xs-8 col-sm-6 col-md-4">
-  <%= f.submit "Save", :class => 'btn btn-default btn-block' %>
-  <% end %>
-  </div>
+    <div class="col-xs-8 col-sm-6 col-md-4">
+      <%= f.submit "Save", :class => 'btn btn-default btn-block' %>
+      <% end %>
+    </div>
   </div>

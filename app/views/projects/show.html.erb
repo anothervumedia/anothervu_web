@@ -10,56 +10,45 @@
     <div class="row">
       <div class="col-sm-4">
     <h3 id="project-name">
-      <span>
-        <% if @creator == current_user %>
-      <%= link_to edit_project_path(@project) do %>
-    <span title="Edit Your Project"><%= fa_icon "edit" %></span>
-<% end %>
+      <% if @creator == current_user %>
       <%= "#{@project.name}" %>
-      <br>
-      <%= @project.location %>
+      <%= link_to edit_project_path(@project) do %>
+        <h5 style=" display: inline; opacity: .6;" title="Edit Your Project"><%= fa_icon "edit" %></h5>
+      <% end %>
 
       <% else %>
-      <span><%= @project.name %></span>
-      <span><%= @project.location %></span>
-
+      <%= @project.name %>
       <% end %>
-        </span>
-      </h3>
-      <h4>
+    </h3>
+    <h5><%= @project.location %></h5>
+    <h4>
+    <div>
       <div class="row">
         <div class= "col-md-12">by <%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
         </div>
       </div>
-      </h4>
-      <h4>
-        <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
-        <% if @heart.present? %>
+    </h4>
+    <h4>
+      <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
+      <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
-            <%= @project.hearts.count %>
+      <%= @project.hearts.count %>
             <i class="fa fa-heart" title="Unlike This Project"></i>
           </span>
-        <% else %>
+      <% else %>
           <span class="project-heart">
             <i class="fa fa-heart-o" title="Like This Project"></i>
           </span>
-        <% end %>
-      </h4>
+      <% end %>
+    </h4>
       <hr>
       <p><%= @project.description %></p>
-
-
-      <% if @creator == current_user %>
-
-      <!-- <div><%= link_to "Add Photo", new_project_upload_path(@project) %></div> -->
-    <% end %>
     <hr>
     <div class="row">
     <div class="col-sm-12 col-md-12">
       <%= render 'comments/comment' %>
     </div>
     </div>
-
       </div>
 
       <div class="col-xs-12 col-sm-11 col-md-8">

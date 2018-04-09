@@ -3,7 +3,8 @@
 <div class="container new-upload projects-container css-2s1366">
   <div class="row">
   <div class="col-sm-4">
-  <h3 class=>Edit Project <!--  <%= @project.name %> --></h3>
+  <h3><%= link_to "Edit Project Info", edit_project_path(@project) %></h3>
+  <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
   </div>
   <div class="col-sm-8">
   <%= render partial: "form", locals: {project: @project} %>

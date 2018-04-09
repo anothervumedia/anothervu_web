@@ -1,5 +1,4 @@
 <%= form_for([@project, @project.comments.build]) do |f| %>
   <%= f.text_field :content, placeholder:" Add a comment...", :class => 'comment-form' %>
   <br>
-  <!--<%= f.submit %> -->
 <% end %>

@@ -10,7 +10,7 @@
         <% if @user == current_user %>
       <%= "#{@user.first_name} #{@user.last_name}" %>
       <%= link_to edit_user_path(current_user) do %>
-      <span title="Edit Your Profile"><%= fa_icon "edit" %></span>
+      <h5 style=" display: inline; opacity: .6;" title="Edit Your Profile"><%= fa_icon "edit" %></h5>
       <% end %>
       <% else %>
       <span><%= "#{@user.first_name} #{@user.last_name}" %></span>
