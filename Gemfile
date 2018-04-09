@@ -24,6 +24,7 @@ gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'pundit'
 gem 'social-share-button'
+gem 'rails_admin'
 
 
 
