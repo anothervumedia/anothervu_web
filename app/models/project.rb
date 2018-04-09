@@ -12,11 +12,4 @@ class Project < ApplicationRecord
 
   scope :with_upload, -> { joins(:uploads).group('projects.id') }
 
-  def self.search(search)
-    if search
-        where(["name LIKE ?", "%#{search}%"])
-    else
-      all
-    end
-  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408041417) do
+ActiveRecord::Schema.define(version: 20180409183307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20180408041417) do
 
   create_table "hearts", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "created_at", default: "2018-02-09 20:49:24", null: false
-    t.datetime "updated_at", default: "2018-02-09 20:49:24", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_hearts_on_project_id"
     t.index ["user_id"], name: "index_hearts_on_user_id"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20180408041417) do
   create_table "uploads", force: :cascade do |t|
     t.string "image"
     t.string "video"
-    t.datetime "created_at", default: "2018-02-09 20:49:24", null: false
-    t.datetime "updated_at", default: "2018-02-09 20:49:24", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_uploads_on_project_id"
   end
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180408041417) do
     t.text "biography"
     t.string "phone_number"
     t.string "website"
+    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

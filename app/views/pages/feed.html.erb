@@ -10,10 +10,7 @@
         <h1>AnotherVU</h1>
       </div>
   </div>
-  <%= form_tag feed_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "search" %>
-  <% end %>
+
   <div class="row feed-row">
     <% @projects.each do |project| %>
       <div class="col-xs-12 col-sm-6 col-md-4 project" data-id="<%= project.id %>">
