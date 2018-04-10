@@ -29,7 +29,6 @@
       </div>
     </h4>
     <h4>
-      <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
       <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
       <%= @project.hearts.count %>
@@ -44,6 +43,7 @@
       <hr>
       <p><%= @project.description %></p>
     <hr>
+    <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
     <div class="row">
     <div class="col-sm-12 col-md-12">
       <%= render 'comments/comment' %>
