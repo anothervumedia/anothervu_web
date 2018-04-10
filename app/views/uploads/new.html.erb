@@ -16,6 +16,8 @@
       <div class="row edit-profile" id="profile-margin">
       <div class="col-sm-12 col-md-8">
         <%= f.cl_image_upload(:image, return_delete_token: true, :html => { :multiple => true }) %>
+        <p style="opacity:.4"><i>File Types: jpeg / png / gif<br>Max File-Size 20MB</i></p>
+        </p>
         <%= f.submit "Save", :class => 'btn btn-default btn-block top-10' %>
         <div class="top-10">- OR -</div>
         <div id="dropZone" class="top-10">
