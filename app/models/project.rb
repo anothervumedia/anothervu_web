@@ -7,7 +7,6 @@ class Project < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
-  validates :description, presence: true
   accepts_nested_attributes_for :uploads, allow_destroy: true
 
   paginates_per 12
