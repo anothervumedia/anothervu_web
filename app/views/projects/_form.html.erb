@@ -10,10 +10,22 @@
       </div>
     </div>
   <br>
-    <div class="col-sm-12 col-md-4">
-     <p><%= f.label :category, 'Category' %></p>
-      <%= f.select :category, ["Architecture",  "Design", "Interior design", "Furniture Design", "Kitchen Design", "Landscape Design"], :prompt => "Category" %>
-     </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :category, 'Category', :class => ' name'  %>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= f.select :category, ["Architecture",  "Design", "Interior design", "Furniture Design", "Kitchen Design", "Landscape Design"], :prompt => "Category" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :designer, "Creator", :class => ' name' %>
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <%= f.text_field :designer, :class => 'user-bio form'%>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12 col-md-4">
         <%= f.label :location, "Location", :class => ' name' %>
@@ -26,7 +38,7 @@
   <br>
   <div class="row">
     <div class="col-sm-12 col-md-2">
-      <%= f.label :description, "Description or Comments", :class => ' name' %>
+      <%= f.label :description, "Description", :class => ' name' %>
     </div>
     <div class="col-sm-12 col-md-10">
       <%= f.text_area :description, rows: 5, cols: 30, :class => 'user-bio form' %>
