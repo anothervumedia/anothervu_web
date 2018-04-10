@@ -10,6 +10,10 @@
       </div>
     </div>
   <br>
+    <div class="col-sm-12 col-md-4">
+     <p><%= f.label :category, 'Category' %></p>
+      <%= f.select :category, ["Architecture",  "Design", "Interior design", "Furniture Design", "Kitchen Design", "Landscape Design"], :prompt => "Category" %>
+     </div>
     <div class="row">
       <div class="col-sm-12 col-md-4">
         <%= f.label :location, "Location", :class => ' name' %>
