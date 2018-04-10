@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
     authorize @project
 
     if @project.update_attributes(project_params)
-      redirect_to projects_path, notice: "#{@project.name} updated."
+      redirect_to project_path(@project), notice: "#{@project.name} updated."
     else
       flash[:alert] = "Unable to update project. #{@project.errors.full_messages.to_sentence}"
       redirect_to :edit
@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :location, :category, :designer)
+    params.require(:project).permit(:name, :description, :location, :category, :creator)
   end
 
 end
