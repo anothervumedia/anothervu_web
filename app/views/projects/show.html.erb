@@ -28,6 +28,8 @@
         </div>
       </div>
     </h4>
+    <p><%= @project.category %></p>
+
     <h4>
       <% if @heart.present? %>
           <span class="project-heart favorited" data-heart-id="<%= @heart.id %>">
