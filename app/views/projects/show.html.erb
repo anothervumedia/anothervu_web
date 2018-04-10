@@ -24,12 +24,18 @@
     <h4>
     <div>
       <div class="row">
-        <div class= "col-md-12">by <%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
+        <div class= "col-xs-3 col-sm-6 col-md-6">
+          <% if @project.category == "Architecture"%>
+              <h4>Architect: </h4>
+          <% else %>
+              <h4>Designer: </h4>
+          <% end %>
         </div>
-      </div>
-    </h4>
-    <p><%= @project.category %></p>
-    <p><%= @project.designer %></p>
+        <div class="col-xs-9  col-sm-6 col-md-6">
+            <h4><%= @project.designer  %><h4>
+        </div>
+          </div>
+        </h4>
 
 
     <h4>
@@ -45,7 +51,11 @@
       <% end %>
     </h4>
       <hr>
+      <p>Category: <%= @project.category %></p>
       <p><%= @project.description %></p>
+    <hr>
+    <div>Uploaded By: <%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
+    </div>
     <hr>
     <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
     <div class="row">
