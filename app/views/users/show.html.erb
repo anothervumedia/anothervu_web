@@ -18,7 +18,9 @@
         </span>
   </h3>
     <div class="row">
-    <p class="col-sm-12" id="emailink"><%= mail_to @user.email %></p>
+    <% if  @user.email_show == false %>
+      <p class="col-sm-12" id="emailink"><%= mail_to @user.email %></p>
+    <% end %>
     <p class="col-sm-12" id="emailink"><%= link_to "#{@user.website}", "#{@user.website}", :target => "_blank"%></p>
     <p class="col-sm-12"><%= @user.phone_number %></p>
   </div>
