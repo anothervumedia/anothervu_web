@@ -13,5 +13,8 @@ class Project < ApplicationRecord
 
   scope :with_upload, -> { joins(:uploads).group('projects.id') }
 
+  def self.search(search)
+    where("projects.name LIKE ? OR projects.description LIKE ? OR projects.location LIKE ? OR projects.category LIKE ? OR projects.designer LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
 
 end
