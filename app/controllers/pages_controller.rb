@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     redirect_to feed_path if user_signed_in?
+    @projects = Project.all.joins("INNER JOIN (#{Project.with_upload.to_sql}) as p ON p.id = projects.id").sample(12)
   end
 
   def feed

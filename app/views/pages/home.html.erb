@@ -15,140 +15,32 @@
     </div>
 </div>
 
-
 <div class="container css-2s1366" id="photogrid">
-  <div class="row">
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1520824594/in2m3qiqyewgnsuylw1m.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">The Art Hotel<br>Denver, CO</h3>
-        <p class="content-text">By Davis Partnership</p>
+  <div class="row feed-row">
+    <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 project" data-id="<%= project.id %>">
+        <div class="content">
+          <%= link_to project_path(project) do %>
+        <div class="content-overlay">
+        </div>
+            <div class="cover">
+            <%= cl_image_tag project.uploads.first.image_url, :crop=>:fill %>
+            </div>
+          <% end %>
+          <%= link_to project_path(project) do %>
+          <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">
+              <%= "#{project.name}" %>
+              </h3>
+              <p class="content-text">
+              <%= "#{project.designer}" %>
+              </p>
+          </div>
+          <% end %>
+        </div>
       </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1511061900/lxn1ql46jy8xhngqt8e0.png" class="cover"/></a>
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">The Bund<br>Shanghi CN</h3>
-        <p class="content-text">View from hotel room.  By Raul Garcia</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1512349003/hn556wvyjqysjvjqu3p5.jpg" id="eksh1" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">EKS&H HQ<br>Greenwood Vlg, CO</h3>
-        <p class="content-text">By RNL</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://astulainc.com/images/steven%20holl%20nelson%20atkins%20museum%20art_027.jpg?crc=3793499871" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Nelson Atkins Museum of Art<br>Kansas City, MO</h3>
-        <p class="content-text">By Steve Holl</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1520735291/pqdewndxeyvrplkfo5ru.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Pearl Izumi HQ<br>Louisville, CO</h3>
-        <p class="content-text">by ZGF Architects / Arch11</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1520691609/s3sfcn7hmxdj1mtgpqut.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Agrium HQ<br>Loveland, CO</h3>
-        <p class="content-text">by RNL</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1520824324/com7qyl85zpcfhqjrwf4.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Prayer Pavilion of Light<br>Phoenix, AZ</h3>
-        <p class="content-text">by Debartolo Architects</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://res.cloudinary.com/anothervu/image/upload/v1520824479/lnlslmz2pjvcxj7880zx.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Circle House<br> Denver, CO</h3>
-        <p class="content-text">by SextonLawton Architecture</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="https://images.adsttc.com/media/images/5787/321e/e58e/ce09/8e00/0146/slideshow/UrbanCornerViewTowardsEntrance1.jpg?1468477971" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Punjab Kesari HQ<br>New Delhi, IN</h3>
-        <p class="content-text">by Studio Symbiosis</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="http://banbenpu.com/wp-content/uploads/2017/05/fresh-architecture-photos-best-home-design-excellent-to-architecture-photos-home-interior.jpg" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Heydar Aliyev Center<br>Baku, Azerbaijan</h3>
-        <p class="content-text">by Zaha Hadid Architects</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="https://tedideas.files.wordpress.com/2016/01/ole_scheeren_cctv-by-rem-koolhaas-and-ole-scheeren-c2a9-oma-01_photo-by-iwan-baan.jpg?w=2000&h=1333" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">CCTV HQ<br>Beijing, CN</h3>
-        <p class="content-text">by OMA</p>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="content">
-        <div class="content-overlay"></div>
-        <a><img src="https://static1.squarespace.com/static/5592f7d9e4b048d33e64584a/58405fbe440243e5419b7399/596d06378419c2e5a0ddb130/1520523583636/Exterior_7614+MED.jpg?format=500w" class="cover"/></a>
-        <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Brick City House<br>Denver, CO</h3>
-        <p class="content-text">by Studio B Architects</p>
-      </div>
-      </div>
-    </div>
+    <% end %>
   </div>
+</div>
 
 </div>
