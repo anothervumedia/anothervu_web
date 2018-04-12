@@ -46,7 +46,7 @@ RSpec.feature "User Profile" do
     scenario "can view another user's profiile" do
       visit user_path(@another_user)
       
-      expect(page).to have_content("#{@another_user.first_name} #{@another_user.last_name}'s Profile")
+      expect(page).to have_content("#{@another_user.first_name} #{@another_user.last_name}")
       expect(page).to have_content(@another_user.biography)
     end
 
