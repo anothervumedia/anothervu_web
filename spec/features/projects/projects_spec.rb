@@ -19,7 +19,7 @@ RSpec.feature "Projects" do
 
       expect(page).to have_content('First, describe your project.')
 
-      fill_in "Name", with: "Dope Pic"
+      fill_in "Title", with: "Dope Pic"
       fill_in "Description", with: "This is picture is beyond cool. It was taken in the Spring of 1999."
       click_on "Save"
 
@@ -46,10 +46,11 @@ RSpec.feature "Projects" do
 
       expect(current_path).to eq(edit_project_path(@project.id))
 
-      fill_in "Name", with: "My Updated Name"
+      fill_in "Title", with: "My Updated Name"
       click_on "Save"
 
-      expect(current_path).to eq(projects_path)
+      expect(current_path).to eq(project_path(@project.id))
+      
       expect(page).to have_content("My Updated Name")
     end
 

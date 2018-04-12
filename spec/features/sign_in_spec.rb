@@ -10,7 +10,7 @@ RSpec.feature "Signing In", :devise do
     signin(@user.email, @user.password)
 
     expect(current_path).to eq(feed_path)
-    expect(page).to have_content("Feed")
+    expect(page).to have_title("Feed | AnotherVU")
   end
 
   scenario "signing in with invalid credentials", js: true do
