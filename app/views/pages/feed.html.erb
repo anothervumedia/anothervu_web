@@ -11,14 +11,31 @@
       </div>
   </div>
 
+
   <div class="row feed-row">
     <% @projects.each do |project| %>
       <div class="col-xs-12 col-sm-6 col-md-4 project" data-id="<%= project.id %>">
-        <%= link_to project_path(project) do %>
-          <%= cl_image_tag project.uploads.first.image_url, :crop=>:fill %>
-        <% end %>
+        <div class="content">
+          <%= link_to project_path(project) do %>
+        <div class="content-overlay">
+        </div>
+            <div class="cover">
+            <%= cl_image_tag project.uploads.first.image_url, :crop=>:fill %>
+            </div>
+          <% end %>
+          <%= link_to project_path(project) do %>
+          <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">
+              <%= "#{project.name}" %>
+              </h3>
+              <p class="content-text">
+              <%= "#{project.designer}" %>
+              </p>
+          </div>
+          <% end %>
+        </div>
 
-        <% if project.heart_id.present? %>
+          <% if project.heart_id.present? %>
           <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
             <i class="fa fa-heart"></i>
           </span>
@@ -27,10 +44,6 @@
             <i class="fa fa-heart-o"></i>
           </span>
         <% end %>
-
-        <div>
-          <%= link_to "#{project.name}", project_path(project) %>
-        </div>
       </div>
     <% end %>
   </div>
