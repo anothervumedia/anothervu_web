@@ -13,7 +13,7 @@ RSpec.feature "Feed" do
     scenario "cannot see the feed and is redirected" do
       visit feed_path
 
-      expect(page).to_not have_content("Feed")
+      expect(page).to_not have_title("Feed | AnotherVU")
       expect(current_path).to eq(new_user_session_path)
     end
   end
@@ -26,7 +26,7 @@ RSpec.feature "Feed" do
     scenario "can see the feed" do
       visit feed_path
 
-      expect(page).to have_content("Feed")
+      expect(page).to have_title("Feed | AnotherVU")
     end
 
     scenario "can see projects in the feed" do
