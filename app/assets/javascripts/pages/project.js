@@ -70,14 +70,15 @@
   }
   function positionSidebar() {
     if ($('.container').first().innerWidth() > 750) {
-        $('#sidebar').affix({});
         $('#sidebar').addClass('left');
     } else {
         $('#sidebar').removeClass('left');
+        $('#sidebar').removeClass('affix-top');
+        $('#sidebar').removeClass('affix');
     }
 }
 
-  setInterval(positionSidebar, 300);
+  setInterval(positionSidebar, 300).ease;
 
   window.AnotherVu = AnotherVu;
 
