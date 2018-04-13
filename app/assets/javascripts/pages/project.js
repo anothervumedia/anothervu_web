@@ -78,7 +78,7 @@
     }
 }
 
-  setInterval(positionSidebar, 300).ease;
+  setInterval(positionSidebar, 300);
 
   window.AnotherVu = AnotherVu;
 
