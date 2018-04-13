@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: [:show, :edit, :update, :destroy, :capitalize]
-  before_action :capitalize
+  before_action :capitalize, except: [:index]
 
   def index
     @projects = current_user.projects

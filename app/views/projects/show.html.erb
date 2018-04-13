@@ -6,36 +6,36 @@
 <div class="container css-2s1366">
   <div id="showProject" class="page-container profile-container"
   data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
-
-    <div class="row">
-      <div class="col-sm-4">
-    <h3 id="project-name">
-      <% if @creator == current_user %>
-      <%= "#{@project.name}" %>
-      <%= link_to edit_project_path(@project) do %>
+    <div class="column">
+      <div id="sidebar" class="col-sm-4 left">
+        <h3 id="project-name">
+        <% if @creator == current_user %>
+        <%= "#{@project.name}" %>
+        <%= link_to edit_project_path(@project) do %>
         <h5 style=" display: inline; opacity: .6;" title="Edit Your Project"><%= fa_icon "edit" %></h5>
-      <% end %>
+        <% end %>
 
-      <% else %>
-      <%= @project.name %>
-      <% end %>
-    </h3>
-    <h5><%= @project.location %></h5>
-    <h4>
-    <div>
-      <div class="row">
-        <div class= "col-xs-3 col-sm-6 col-md-6">
-          <% if @project.category == "Architecture"%>
-              <h4>Architect: </h4>
-          <% else %>
-              <h4>Designer: </h4>
-          <% end %>
-        </div>
-        <div class="col-xs-9  col-sm-6 col-md-6">
+        <% else %>
+        <%= @project.name %>
+        <% end %>
+        </h3>
+        <h5><%= @project.location %></h5>
+        <h4>
+          <div>
+            <div class="row">
+              <div class= "col-xs-3 col-sm-6 col-md-6">
+                <% if @project.category == "Architecture"%>
+                <h4>Architect: </h4>
+                <% else %>
+                <h4>Designer: </h4>
+                <% end %>
+              </div>
+            <div class="col-xs-9  col-sm-6 col-md-6">
             <h4><%= @project.designer  %><h4>
-        </div>
+            </div>
           </div>
         </h4>
+
 
 
     <h4>
@@ -64,25 +64,27 @@
     </div>
     </div>
       </div>
-      <div class="col-xs-12 col-sm-11 col-md-8">
-      <div id="projectsrow" class="row project-upload-row">
-      <% @uploads.each do |upload| %>
-        <div class="col-xs-12 upload" data-id="<%= upload.id %>">
-          <%= cl_image_tag upload.image, transformation: [{width: :auto, height: 600, dpr: :auto, responsive: :true, crop: :scale}, {width: 575, crop: :limit}], responsive_placeholder: "blank" %>
-          <% if @creator == current_user %>
-            <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
-              <p id="delete">Delete Photo</p>
 
+      <div class="col-xs-12 col-sm-11 col-md-offset-4 col-md-8">
+        <div id="projectsrow" class="column project-upload-row">
+        <% @uploads.each do |upload| %>
+          <div class="col-xs-12 upload" data-id="<%= upload.id %>">
+            <%= cl_image_tag upload.image, transformation: [{width: :auto, height: 600, dpr: :auto, responsive: :true, crop: :scale}, {width: 575, crop: :limit}], responsive_placeholder: "blank" %>
+            <% if @creator == current_user %>
+              <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
+                <p id="delete">Delete Photo</p>
+
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
+        <% if @creator = current_user && @project.uploads == [] %>
+          <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
+        <% end %>
+      </div>
     </div>
-      <% if @creator = current_user && @project.uploads == [] %>
-        <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
-      <% end %>
-    </div>
-     </div>
+
 
 
 

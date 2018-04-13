@@ -68,6 +68,16 @@
       });
     }
   }
+  function positionSidebar() {
+    if ($('.container').first().innerWidth() > 750) {
+        $('#sidebar').affix({});
+        $('#sidebar').addClass('left');
+    } else {
+        $('#sidebar').removeClass('left');
+    }
+}
+
+  setInterval(positionSidebar, 300);
 
   window.AnotherVu = AnotherVu;
 
