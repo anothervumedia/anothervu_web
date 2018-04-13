@@ -70,10 +70,11 @@
   }
   function positionSidebar() {
     if ($('.container').first().innerWidth() > 750) {
-        $('#sidebar').affix({});
         $('#sidebar').addClass('left');
     } else {
         $('#sidebar').removeClass('left');
+        $('#sidebar').removeClass('affix-top');
+        $('#sidebar').removeClass('affix');
     }
 }
 
