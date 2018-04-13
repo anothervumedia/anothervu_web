@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_user
+  before_action :capitalize
 
   def show
-    @user = User.find(params[:id])
     respond_to do |format|
         format.html # show.html.erb
         format.js # show.js.erb
@@ -11,14 +12,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     authorize @user
   end
 
   def update
-    @user = User.find(params[:id])
     authorize @user
-
     if @user.update_attributes(user_params)
       redirect_to action: :show, id: current_user.id
     else
@@ -28,10 +26,19 @@ class UsersController < ApplicationController
 
   end
 
+  def capitalize
+    @user.first_name = @user.first_name.capitalize
+    @user.last_name = @user.last_name.capitalize
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :biography, :phone_number, :website, :email_show)
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
 end
