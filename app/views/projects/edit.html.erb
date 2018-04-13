@@ -4,7 +4,7 @@
   <div class="row">
   <div class="col-sm-4">
   <h3><%= link_to "Edit Project Info", edit_project_path(@project) %></h3>
-  <h3><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
+  <h3 style="opacity:.4"><%= link_to "Add Photos", new_project_upload_path(@project) %></h3>
   </div>
   <div class="col-sm-8">
   <%= render partial: "form", locals: {project: @project} %>
