@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :capitalize]
+  before_action :capitalize
 
   def index
     @projects = current_user.projects
@@ -22,7 +24,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
     @creator = @project.user
     @heart = @project.hearts.where(user: current_user).first
     @uploads = @project.uploads
@@ -30,12 +31,10 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
     authorize @project
   end
 
   def update
-    @project = Project.find(params[:id])
     authorize @project
 
     if @project.update_attributes(project_params)
@@ -48,7 +47,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
     authorize @project
 
     if @project.destroy
@@ -58,7 +56,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def capitalize
+    @project.name = @project.name.titleize
+  end
+
   private
+
+  def find_project
+     @project = Project.find(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:name, :description, :location, :category, :designer)
