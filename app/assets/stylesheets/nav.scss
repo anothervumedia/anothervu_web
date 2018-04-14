@@ -8,6 +8,7 @@
 .navbar-default {
   background-color: white;
   border: none;
+  z-index: 1;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -31,4 +32,3 @@
     padding: 2px;
     }
 }
-

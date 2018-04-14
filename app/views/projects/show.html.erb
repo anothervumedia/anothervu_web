@@ -6,8 +6,8 @@
 <div class="container css-2s1366">
   <div id="showProject" class="page-container profile-container"
   data-project-id="<%= @project.id %>" data-hearts-url="<%= hearts_path %>">
-    <div class="column">
-      <div id="sidebar" class="col-sm-4 left">
+    <div class="row">
+      <div id="sidebar" class="col-sm-4 info">
         <h3 id="project-name">
         <% if @creator == current_user %>
         <%= "#{@project.name}" %>
@@ -31,7 +31,7 @@
                 <% end %>
               </div>
             <div class="col-xs-9  col-sm-6 col-md-6">
-            <h4><%= @project.designer  %><h4>
+            <h4><%= @project.designer  %></h4>
             </div>
           </div>
         </h4>
@@ -84,11 +84,6 @@
         <% end %>
       </div>
     </div>
-
-
-
-
-
   </div>
 </div>
 
