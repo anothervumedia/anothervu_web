@@ -1,6 +1,6 @@
 $(document).ready(function() {
    //code here
-   if ($('.container').first().innerWidth() > 750) {
+   if ($('.container').first().innerWidth() > 767) {
         $('#sidebar').addClass('left');
     } else {
         $('#sidebar').addClass('full');
@@ -78,7 +78,7 @@ $(document).ready(function() {
     }
   }
   function positionSidebar() {
-    if ($('.container').first().innerWidth() > 750) {
+    if ($('.container').first().innerWidth() > 767) {
         $('#sidebar').addClass('left');
         $('#sidebar').removeClass('full');
     } else {
