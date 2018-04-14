@@ -3,7 +3,7 @@
   <%= render 'comments/form'  %>
 <% end %>
 
-<ul style="display: inline; list-style: none;">
+<ul class="scrolling-comments style="display: inline; list-style: none;">
     <li>
     <% @comments.each do |comment| %>
     <% if comment.user.first_name.nil? %>
