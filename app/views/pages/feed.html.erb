@@ -20,7 +20,7 @@
         <div class="content-overlay">
         </div>
             <div class="cover">
-            <%= cl_image_tag project.uploads.first.image_url, :crop=>:fill %>
+            <%= cl_image_tag project.uploads.first.image_url, :secure => true, :crop=>:fill %>
             </div>
           <% end %>
           <%= link_to project_path(project) do %>
