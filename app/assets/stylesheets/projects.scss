@@ -28,6 +28,15 @@
   text-align: left;
 }
 
+.info {
+  z-index: 20;
+}
 .left {
     position: fixed;
+    background-color: white;
+}
+
+.full {
+  background-color: white;
+  width: 100%;
 }

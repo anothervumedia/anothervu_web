@@ -1,3 +1,12 @@
+$(document).ready(function() {
+   //code here
+   if ($('.container').first().innerWidth() > 750) {
+        $('#sidebar').addClass('left');
+    } else {
+        $('#sidebar').addClass('full');
+    }
+});
+
 (function ($, window) {
   window.AnotherVu = window.AnotherVu || {}
 
@@ -71,10 +80,12 @@
   function positionSidebar() {
     if ($('.container').first().innerWidth() > 750) {
         $('#sidebar').addClass('left');
+        $('#sidebar').removeClass('full');
     } else {
         $('#sidebar').removeClass('left');
         $('#sidebar').removeClass('affix-top');
         $('#sidebar').removeClass('affix');
+        $('#sidebar').addClass('full');
     }
 }
 
