@@ -1,0 +1,5 @@
+meta_product_name: "AnotherVU"
+meta_title: "AnotherVU - Architecture & Design Media"
+meta_description: "AnotherVU gives you another view of architectural content."
+meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@anothervumedia"
