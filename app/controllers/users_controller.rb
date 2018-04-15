@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user
   before_action :capitalize
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable
+  # devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable
 
   def show
     respond_to do |format|
@@ -28,8 +28,12 @@ class UsersController < ApplicationController
   end
 
   def capitalize
-    @user.first_name = @user.first_name.capitalize
-    @user.last_name = @user.last_name.capitalize
+    if !@user.first_name.nil?
+      @user.first_name = @user.first_name.capitalize
+    end
+    if !@user.last_name.nil?
+      @user.last_name = @user.last_name.capitalize
+    end
   end
 
   private
