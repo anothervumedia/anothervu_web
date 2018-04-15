@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
     feed_path
   end
 
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+  end
   private
 
   def user_not_authorized
