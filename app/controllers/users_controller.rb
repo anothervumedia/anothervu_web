@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user
   before_action :capitalize
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable
 
   def show
     respond_to do |format|
