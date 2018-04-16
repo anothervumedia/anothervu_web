@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     if @user.update_attributes(user_params)
-      redirect_to feed_path
+      redirect_to user_path(current_user)
     else
       flash[:alert] = "Unable to update profile. #{@user.errors.full_messages.to_sentence}"
       redirect_to :edit
