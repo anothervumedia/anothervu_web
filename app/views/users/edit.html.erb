@@ -7,7 +7,7 @@
   <h3><%= link_to "Edit Account Settings", edit_user_registration_path %></h3>
   </div>
     <div class="col-sm-9">
-    <%= render partial: "form"%>
+    <%= render partial: "form", locals: {user: @user}%>
     </div>
   </div>
 </div>
