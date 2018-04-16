@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.desktop-form {
-  width: 35%;
+#input {
+  width: 70%;
 }
 
-.mobile-form {
-  width: 70%;
+
+@media screen and (min-width: 767px) {
+    #input {
+      width: 35%;
+    }
 }
