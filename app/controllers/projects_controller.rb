@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      flash[:success] = "Your project was created. Now add some images."
+      # flash[:success] = "Your project was created. Now add some images."
       redirect_to project_path(@project)
     else
       flash[:alert] = @project.errors.full_messages.to_sentence
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     authorize @project
 
     if @project.update_attributes(project_params)
-      redirect_to project_path(@project), notice: "#{@project.name} updated."
+      redirect_to project_path(@project)
     else
       flash[:alert] = "Unable to update project. #{@project.errors.full_messages.to_sentence}"
       redirect_to :edit
