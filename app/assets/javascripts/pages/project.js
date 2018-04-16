@@ -1,11 +1,11 @@
-$(document).ready(function() {
-   //code here
-   if ($('.container').first().innerWidth() > 767) {
-        $('#sidebar').addClass('left');
-    } else {
-        $('#sidebar').addClass('full');
-    }
-});
+// $(document).ready(function() {
+//    //code here
+//    if ($('.container').first().innerWidth() > 767) {
+//         $('#sidebar').addClass('left');
+//     } else {
+//         $('#sidebar').addClass('full');
+//     }
+// });
 
 (function ($, window) {
   window.AnotherVu = window.AnotherVu || {}
@@ -77,19 +77,19 @@ $(document).ready(function() {
       });
     }
   }
-  function positionSidebar() {
-    if ($('.container').first().innerWidth() > 767) {
-        $('#sidebar').addClass('left');
-        $('#sidebar').removeClass('full');
-    } else {
-        $('#sidebar').removeClass('left');
-        $('#sidebar').removeClass('affix-top');
-        $('#sidebar').removeClass('affix');
-        $('#sidebar').addClass('full');
-    }
-}
+//   function positionSidebar() {
+//     if ($('.container').first().innerWidth() > 767) {
+//         $('#sidebar').addClass('left');
+//         $('#sidebar').removeClass('full');
+//     } else {
+//         $('#sidebar').removeClass('left');
+//         $('#sidebar').removeClass('affix-top');
+//         $('#sidebar').removeClass('affix');
+//         $('#sidebar').addClass('full');
+//     }
+// }
 
-  setInterval(positionSidebar, 300);
+//   setInterval(positionSidebar, 300);
 
   window.AnotherVu = AnotherVu;
 
