@@ -1,0 +1,11 @@
+AllCops:
+  Excludes:
+    - db/schema.rb
+    - bin/spring
+    - bin/setup
+    - bin/update
+    - bin/yarn
+    - config/environments/development.rb
+    - config/environments/production.rb
+    - config/environments/test.rb
+    - spec/**/*
