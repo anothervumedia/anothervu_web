@@ -84,7 +84,7 @@ body {
   text-align: left;
   color: $white;
   font-weight:100;
-  /*background-color: #ecf0f1;*/
+  background: linear-gradient(180deg, $black, white);
 }
 
 .social {
@@ -235,4 +235,13 @@ a img {
     display:inline;
     font-style: none;
     text-shadow: 1px 0px 0px #000;
+}
+
+#video-background {
+    display: none;
+  }
+@media screen and (min-width: 767px) {
+  #video-background {
+    display: block;
+  }
 }
