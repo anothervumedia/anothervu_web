@@ -1,7 +1,7 @@
 #showProject {
   .upload {
     margin-bottom: 15px;
-    text-align: center;
+    text-align: right;
     overflow: hidden;
   }
 
@@ -9,6 +9,10 @@
     cursor: pointer;
     color: $black;
   }
+}
+
+.creator {
+  margin-top: -30px;
 }
 
 #project-name {
