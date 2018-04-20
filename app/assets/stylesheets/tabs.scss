@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  }
+
+#tabs-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.tab {
+  color: $black;
+  flex: 0 0 33%;
+  text-align: center;
+  padding: 20px 0;
+}
+.tab.active {
+  background: linear-gradient(180deg, white, #f9f9f9);
+  color: black;
+}
