@@ -1,5 +1,9 @@
-<!--<h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
-<% if user_signed_in? %>-->
+<% if @comments.count >= 1 %>
+    <h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
+  <% else %>
+    <h4> Be the first to comment!</h4>
+<% end %>
+<% if user_signed_in? %>
   <%= render 'comments/form'  %>
 <% end %>
 
