@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :hearts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-
   protected
 
     def smart_add_url_protocol
@@ -22,6 +21,6 @@ class User < ApplicationRecord
     end
 
     def confirmation_required?
-     false
+      false
     end
 end
