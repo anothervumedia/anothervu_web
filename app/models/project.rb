@@ -1,6 +1,4 @@
 class Project < ApplicationRecord
-
-
   belongs_to :user
   has_many :uploads, dependent: :destroy
   has_many :hearts, dependent: :destroy
@@ -16,5 +14,4 @@ class Project < ApplicationRecord
   def self.search(search)
     where("lower(projects.name) LIKE ? OR lower(projects.description) LIKE ? OR lower(projects.location) LIKE ? OR lower(projects.category) LIKE ? OR lower(projects.designer) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
   end
-
 end

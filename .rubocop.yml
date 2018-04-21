@@ -1,11 +1,22 @@
 AllCops:
-  Excludes:
-    - db/schema.rb
+  Exclude:
     - bin/spring
     - bin/setup
     - bin/update
     - bin/yarn
-    - config/environments/development.rb
-    - config/environments/production.rb
-    - config/environments/test.rb
-    - spec/**/*
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - Gemfile
+    - 'lib/**/*'
+    - 'bin/**/*'
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Exclude:
+    - app/models/user.rb
