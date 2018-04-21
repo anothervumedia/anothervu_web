@@ -2,6 +2,10 @@
 #feed {
   .feed-row {
     margin-bottom: 15px;
+    padding-top: 20px;
+    -webkit-box-shadow: 0px 0px 65px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 0px 65px 0px rgba(0,0,0,0.36);
+    box-shadow: 0px 0px 65px 0px rgba(0,0,0,0.36);
 
     .project {
       text-align: center;
@@ -17,7 +21,7 @@
         right: 22px;
         font-size: 22px;
         cursor: pointer;
-        color: $blue;
+        color: $red;
         z-index: 1000;
       }
     }
@@ -37,6 +41,29 @@
   color: white;
   color: #A6F500;
   height: 270px;
+
   /*background-color: #ecf0f1;*/
   }
 }
+// .linear-gradient {
+//   background: linear-gradient(white, $light-blue, white);
+//   height: 100%;
+//   width: 100%;
+//   }
+
+
+
+  #feed-jumbotron {
+    display: block;
+  }
+
+
+  .feed-category {
+    list-style-type:none;
+    margin-right: 10px;
+    padding-left:5px;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+  }
+

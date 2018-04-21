@@ -4,12 +4,24 @@
   <%= javascript_include_tag "pages/feed" %>
 <% end %>
 
-<div id="feed" class="page-container css-2s1366" data-hearts-url="<%= hearts_path %>">
-  <div class="jumbotron" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 0%, rgba(0,36,61,0.0) 0%), url('<%= asset_path('NelsonAtkinsMuseumArt_010') %>')">
-      <div class="container">
-        <h1>AnotherVU</h1>
-      </div>
+<div id="feed" class="page-container css-2s1366 linear-gradient" data-hearts-url="<%= hearts_path %>">
+  <div id="feed-jumbotron" class="jumbotron" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 0%, rgba(0,36,61,0.0) 0%), url('<%= asset_path('NelsonAtkinsMuseumArt_010') %>')">
+<!--       <div id="tabs-container" class="container">
+          <div class="tabs">
+            <a class="tab active" href="#">
+              <h3>Top</h3>
+          </a>
+          <a class="tab" href="#">
+            <h3>New</h3>
+          </a>
+          <a class="tab" href="#">
+            <h3>Rising</h3>
+          </a>
+        </div>
+      </div> -->
   </div>
+
+
 
 
   <div class="row feed-row">
@@ -20,7 +32,7 @@
         <div class="content-overlay">
         </div>
             <div class="cover">
-            <%= cl_image_tag project.uploads.first.image, {secure: true} %>
+            <%= cl_image_tag project.uploads.first.image, {secure: true, dpr: :auto, responsive: :true} %>
             </div>
           <% end %>
           <%= link_to project_path(project) do %>
@@ -56,3 +68,4 @@
     <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
   </div>
 </div>
+

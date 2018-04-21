@@ -4,7 +4,7 @@
 <% end %>
 
 <div class="jumbotron css-2s1366">
-    <div class="overlay"></div>
+    <div class="overlay" id="mobile-background"></div>
     <video id="video-background" preload muted autoplay loop>
         <source src="assets/oculus.mp4" type="video/mp4">
         <source src="assets/oculus.ogv" type="video/ogv">
@@ -24,7 +24,7 @@
         <div class="content-overlay">
         </div>
             <div class="cover">
-              <%= cl_image_tag project.uploads.first.image, {secure: true} %>
+              <%= cl_image_tag project.uploads.first.image, {secure: true, dpr: :auto, responsive: :true} %>
             </div>
           <% end %>
           <%= link_to project_path(project) do %>

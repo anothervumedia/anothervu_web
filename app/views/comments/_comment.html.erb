@@ -1,9 +1,13 @@
-<h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
+<% if @comments.count >= 1 %>
+    <h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
+  <% else %>
+    <h4> Be the first to comment!</h4>
+<% end %>
 <% if user_signed_in? %>
   <%= render 'comments/form'  %>
 <% end %>
 
-<ul class="scrolling-comments style="display: inline; list-style: none;">
+<ul class="scrolling-comments">
     <li>
     <% @comments.each do |comment| %>
     <% if comment.user.first_name.nil? %>
@@ -11,7 +15,7 @@
       <span id="commentuser"><%=comment.user.email %></span> &nbsp;<%= comment.content %>
       <br>
       <span class="commentedits"><%= link_to "Edit", edit_project_comment_path(comment.project, comment) %></span>
-      <span class="commentedits"><%= link_to "Delete", [comment.project, comment], method: :delete %></span>
+      <span id="comment-delete" class="commentedits"><%= link_to "Delete", [comment.project, comment], method: :delete %></span>
       <br>
     </p>
     <% else %>
@@ -19,9 +23,9 @@
       <span id="commentuser"><%=comment.user.first_name %></span> &nbsp;<%= comment.content %>
       <br>
       <% if current_user == comment.user %>
-          <span class="commentedits"><%= link_to "Edit", edit_project_comment_path(comment.project, comment) %>
+          <span id="comment-delete" class="commentedits"><%= link_to "Delete", [comment.project, comment], method: :delete %></span>
+          <span id="comment-edit" class="commentedits"><%= link_to "Edit", edit_project_comment_path(comment.project, comment) %>
           </span>
-          <span class="commentedits"><%= link_to "Delete", [comment.project, comment], method: :delete %></span>
           <br>
       <% end %>
     </p>

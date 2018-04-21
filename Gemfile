@@ -27,9 +27,6 @@ gem 'social-share-button'
 gem 'rails_admin'
 
 
-
-gem 'rails_12factor', group: :production
-
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
   gem 'byebug'
