@@ -58,7 +58,7 @@
         <div>Uploaded By: <%= link_to "#{@creator.first_name} #{@creator.last_name}", user_path(@creator) %>
         </div>
         <hr>
-        <%= social_share_button_tag(@project.name, :allow_sites => %w(email twitter facebook google_plus reddit tumblr linkedin)) %>
+
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
             <%= render 'comments/comment' %>
