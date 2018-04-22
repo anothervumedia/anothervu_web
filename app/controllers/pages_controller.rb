@@ -20,4 +20,13 @@ class PagesController < ApplicationController
         @projects
       end
   end
+
+  def sort_new
+      @projects = Project.joins(
+        "LEFT OUTER JOIN hearts ON projects.id = hearts.project_id AND hearts.user_id = #{current_user.id} " +
+        "INNER JOIN (#{Project.with_upload.to_sql}) as p ON p.id = projects.id")
+        .select("projects.*, hearts.id as heart_id")
+        .order("projects.created_at DESC")
+        .page(params[:page])
+  end
 end
