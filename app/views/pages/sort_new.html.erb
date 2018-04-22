@@ -8,10 +8,10 @@
   <div id="feed-jumbotron" class="jumbotron" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 0%, rgba(0,36,61,0.0) 0%), url('<%= asset_path('NelsonAtkinsMuseumArt_010') %>')">
       <div id="tabs-container" class="container">
           <div class="tabs">
-            <a class="tab active" href="#">
+            <a class="tab" href="feed">
               <h3>Top</h3>
           </a>
-          <a class="tab" href="sort_new">
+          <a class="tab active" href="#">
             <h3>New</h3>
           </a>
         </div>
@@ -65,4 +65,3 @@
     <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
   </div>
 </div>
-
