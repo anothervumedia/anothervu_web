@@ -43,15 +43,16 @@
           </div>
           <% end %>
         </div>
-
-          <% if project.heart_id.present? %>
-          <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
-            <i class="fa fa-heart"></i>
-          </span>
-        <% else %>
-          <span class="heart">
-            <i class="fa fa-heart-o"></i>
-          </span>
+        <% if user_signed_in? %>
+            <% if project.heart_id.present? %>
+            <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
+              <i class="fa fa-heart"></i>
+            </span>
+          <% else %>
+            <span class="heart">
+              <i class="fa fa-heart-o"></i>
+            </span>
+          <% end %>
         <% end %>
       </div>
     <% end %>

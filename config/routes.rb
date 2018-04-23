@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root to: 'pages#home', as: 'home'
-  get 'feed', to: 'pages#feed', as: 'feed'
+  root to: 'pages#feed', as: 'feed'
   get 'sort_new', to: 'pages#sort_new', as: 'sort_new'
 
   get 'terms', to: 'pages#terms', as: 'terms'
