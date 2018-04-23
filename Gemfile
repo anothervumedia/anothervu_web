@@ -25,6 +25,8 @@ gem 'font-awesome-rails'
 gem 'pundit'
 gem 'social-share-button'
 gem 'rails_admin'
+gem 'lightbox2-rails'
+
 
 
 group :development, :test do

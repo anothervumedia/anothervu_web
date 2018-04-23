@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require cloudinary
 //= require social-share-button
+//= require lightbox
 //= require_tree .
