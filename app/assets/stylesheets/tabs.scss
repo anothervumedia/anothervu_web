@@ -19,15 +19,17 @@
   font-size: 17px;
   font-weight: bold;
   margin-top: 0;
+  margin-bottom: -2px;
 }
 
 .tab {
   color: $black;
   flex: 0 0 33%;
   text-align: center;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 .tab.active {
   background: linear-gradient(180deg, white, #f9f9f9);
+  opacity: .75;
   color: black;
 }
