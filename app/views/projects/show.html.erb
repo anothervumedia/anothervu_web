@@ -72,7 +72,7 @@
         <div id="projectsrow" class="column project-upload-row">
         <% @uploads.each do |upload| %>
           <div class="col-xs-12 upload" id="resize-upload" data-id="<%= upload.id %>">
-            <%= link_to cl_image_tag(upload.image, :secure => true, transformation: [{dpr: :auto, responsive: :true}]), upload.image.url, {:'data-lightbox'=>"image-1", :rel => 'lightbox', responsive_placeholder: "blank" } %>
+            <%= link_to cl_image_tag(upload.image, :secure => true, transformation: [{dpr: :auto, responsive: :true}]), cloudinary_url(upload.image, :secure => true), {:'data-lightbox'=>"image-1", :rel => 'lightbox', responsive_placeholder: "blank" } %>
             <% if @creator == current_user %>
               <%= link_to project_upload_path(@project, upload), method: :delete, confirm: 'Delete?', class: 'link-delete', 'data-message' => 'Are you sure?', remote: true do %>
                 <p id="delete">Delete Photo</p>
