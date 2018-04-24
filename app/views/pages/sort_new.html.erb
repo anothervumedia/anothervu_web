@@ -29,7 +29,7 @@
         <div class="content-overlay">
         </div>
             <div class="cover">
-            <%= cl_image_tag project.uploads.first.image, {secure: true, dpr: :auto, responsive: :true} %>
+            <%= cl_image_tag project.uploads.first.image, width: 300, height: 200, crop: :fill , secure: true, dpr: :auto, responsive: :true %>
             </div>
           <% end %>
           <%= link_to project_path(project) do %>
