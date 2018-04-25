@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :uploads, only: [:new, :create, :destroy]
     resources :comments
   end
+
+  resources :conversations do
+    resources :messages
+  end
   resources :hearts, only: [:create, :destroy]
   resources :users, only: [:show, :edit, :update]
 end

@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411232450) do
+ActiveRecord::Schema.define(version: 20180425150148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comment_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true
+    t.index ["descendant_id"], name: "comment_desc_idx"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -21,17 +29,40 @@ ActiveRecord::Schema.define(version: 20180411232450) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.integer "parent_id"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_comments_on_ancestry"
     t.index ["project_id"], name: "index_comments_on_project_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "hearts", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "created_at", default: "2018-03-18 18:07:20", null: false
-    t.datetime "updated_at", default: "2018-03-18 18:07:20", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_hearts_on_project_id"
     t.index ["user_id"], name: "index_hearts_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -50,8 +81,8 @@ ActiveRecord::Schema.define(version: 20180411232450) do
   create_table "uploads", force: :cascade do |t|
     t.string "image"
     t.string "video"
-    t.datetime "created_at", default: "2018-03-18 18:07:20", null: false
-    t.datetime "updated_at", default: "2018-03-18 18:07:20", null: false
+    t.datetime "created_at", default: "2018-02-10 20:25:02", null: false
+    t.datetime "updated_at", default: "2018-02-10 20:25:02", null: false
     t.bigint "project_id"
     t.index ["project_id"], name: "index_uploads_on_project_id"
   end
