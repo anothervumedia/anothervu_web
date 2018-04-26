@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :hearts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  def self.locate(locate)
+    where("lower(users.first_name) LIKE ? OR lower(users.last_name) LIKE ? OR lower(users.email) LIKE ?", "%#{locate.downcase}%", "%#{locate.downcase}%", "%#{locate.downcase}%")
+  end
+
   protected
 
     def smart_add_url_protocol
