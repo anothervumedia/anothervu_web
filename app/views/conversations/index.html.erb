@@ -21,10 +21,13 @@
 <div class="ui segment">
   <h3>All Users</h3>
   <div class="ui list">
+    <%= form_tag(conversations_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :locate, params[:locate], placeholder: "Search Users" %>
+    <% end %>
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
       <div class="item">
-        <%= user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+        <%= user.email %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
       </div>
       <% end %>
     <% end %>

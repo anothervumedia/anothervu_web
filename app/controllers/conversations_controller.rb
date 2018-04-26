@@ -4,6 +4,11 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
+        if params[:locate]
+          @users = @users.locate(params[:locate])
+        else
+          @users
+        end
   end
 
   def create
