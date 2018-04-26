@@ -1,4 +1,22 @@
-<div class="ui segment">
+<div class="container mailbox">
+
+<div class="mailbox-users col-xs-3">
+  <h3>All Users</h3>
+  <div class="ui list">
+    <%= form_tag(conversations_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :locate, params[:locate], placeholder: "Search Users" %>
+    <% end %>
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+      <div class="item">
+        <%= user.email %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="conversations col-xs-9">
   <h3>Mailbox</h3>
 
   <div class="ui list">
@@ -16,20 +34,4 @@
     </div>
   </div>
 </div>
-
-
-<div class="ui segment">
-  <h3>All Users</h3>
-  <div class="ui list">
-    <%= form_tag(conversations_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :locate, params[:locate], placeholder: "Search Users" %>
-    <% end %>
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div class="item">
-        <%= user.email %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
 </div>
