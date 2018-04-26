@@ -8,7 +8,9 @@
   <h3 style="margin-top: 20px">
   <span>
         <% if @user.profile_picture? %>
-            <span id="profile-picture"><%= cl_image_tag(@user.profile_picture, :transformation=>[{:width=>100, :height=>100, :gravity=>"face", :radius=>"max", :responsive => "true", :dpr =>"auto"}, {:width=>100, :crop=>"scale"}], :secure => 'true')%></span>
+            <span id="profile-picture"><%= cl_image_tag(@user.profile_picture, :transformation=>[{:width=>100, :height=>100, :gravity=>"face", :responsive => "true", :dpr =>"auto"}, {:width=>100, :crop=>"scale"}], :secure => 'true')%></span>
+        <% else %>
+            <span id="profile-picture"><a><img src="http://res.cloudinary.com/anothervu/image/upload/v1524770755/ptamql7tybhqhteeiibq.jpg" class="default-project-show"/></a></span>
         <% end %>
 
         <% if @user == current_user %>
