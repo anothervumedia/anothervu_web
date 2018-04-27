@@ -1,8 +1,12 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+  respond_to :js
+
+
 
   def index
     @users = User.all
+
     @conversations = Conversation.all
         if params[:locate]
           @users = @users.locate(params[:locate])
@@ -10,6 +14,7 @@ class ConversationsController < ApplicationController
           @users
         end
   end
+
 
   def create
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
