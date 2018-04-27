@@ -1,1 +1,1 @@
-$(".current_conversation").html("<%= escape_javascript(render 'index', locals: { :@message => @conversation.messages.new, :@messages => @conversation.messages }) %>");
+$(".current_conversation").fadeIn("slow").html("<%= escape_javascript(render 'index', locals: { :@message => @conversation.messages.new, :@messages => @conversation.messages }) %>");
