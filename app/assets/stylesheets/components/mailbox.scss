@@ -1,3 +1,13 @@
 .mailbox {
   color: black;
 }
+
+.current_conversation {
+  height: 80vh;
+  overflow-y: scroll;
+  background-color: #fafafa;
+  padding-top: 20px;
+}
+
+.messenger {
+}
