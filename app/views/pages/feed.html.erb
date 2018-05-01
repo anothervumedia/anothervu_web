@@ -5,9 +5,26 @@
 <% end %>
 
 <div id="feed" class="page-container css-2s1366 linear-gradient" data-hearts-url="<%= hearts_path %>">
-  <div id="feed-jumbotron" class="jumbotron" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 0%, rgba(0,36,61,0.0) 0%), url('<%= asset_path('NelsonAtkinsMuseumArt_010') %>')">
-      <div id="tabs-container" class="container">
-          <div class="tabs">
+
+        <div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://placeimg.com/640/480/arch" alt="">
+                </div>
+
+                <div class="item">
+                    <img src="https://placeimg.com/640/480/arch5" alt="">
+                </div>
+                <div class="item">
+                    <img src="https://placeimg.com/640/480/arch6" alt="">
+                </div>
+            </div>
+        </div>
+
+
+    <div class="tabs">
             <a class="tab active" href="#">
               <h3>Top</h3>
           </a>
@@ -15,11 +32,6 @@
             <h3>New</h3>
           </a>
         </div>
-      </div>
-  </div>
-
-
-
 
   <div class="row feed-row">
     <% @projects.each do |project| %>
@@ -66,4 +78,6 @@
     <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
   </div>
 </div>
+</div>
+
 
