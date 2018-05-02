@@ -6,6 +6,8 @@
     }
 
 .navbar-default {
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: white;
   border: none;
   z-index: 1;
@@ -15,9 +17,46 @@
   color: $white;
 }
 
+.navbar-nav>li>a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(243,64,147);
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.navbar-nav>li>a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+
 .navbar-default .navbar-brand {
-  color: $blue;
-  font-size: 30px;
+  color: white;
+  font-size: 35px;
+  padding-right: 225px;
+  color: rgb(243,64,147);
+  border-bottom: 4px solid rgb(243,64,147);
+}
+
+.navbar-default .navbar-brand:hover {
+  color: rgb(243,64,147);
+  border-bottom: 4px solid rgb(243,64,147);
+}
+
+hr {
+  background-color: rgba(243,64,147,0.2);
+  height: 1px;
+  border: 0;
+  border-left: 50px;
 }
 
 .navbar {
