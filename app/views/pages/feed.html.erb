@@ -5,32 +5,7 @@
 <% end %>
 
 <div id="feed" class="page-container css-2s1366 linear-gradient" data-hearts-url="<%= hearts_path %>">
-        <div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="5000">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="carousel-caption d-none d-md-block" style="top: 20px; bottom: auto; max-width: 100%; width:100%; left: -25px; ">
-                      <h1 style="text-align: right; font-size: 4.5em; font-family: Helvetica, Arial, sans-serif;">Share Your World<br>Through Architecture and Design</h1>
-                    </div>
-                <div class="item active">
-                    <%= image_tag 'PavLightViolet.jpg' %>
-                </div>
-                <div class="item">
-                    <%= image_tag 'CCYAsp.jpg' %>
-                </div>
-                <div class="item">
-                    <%= image_tag 'BOSS.jpg' %>
-                </div>
-            </div>
-        </div>
-
-        <div class="tabs">
-          <a class="tab active" href="#">
-            <h3>Top</h3>
-          </a>
-          <a class="tab" href="sort_new">
-            <h3>New</h3>
-          </a>
-        </div>
+<%= render "carousel/carousel" %>
 
   <div class="row feed-row">
     <% @projects.each do |project| %>
