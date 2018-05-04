@@ -1,0 +1,54 @@
+<% @page_title = "Liked" %>
+<%= cl_client_hints_meta_tag %>
+<% content_for :footer_javascript do  %>
+  <%= javascript_include_tag "pages/feed" %>
+<% end %>
+
+<div id="feed" class="page-container css-2s1366 linear-gradient" data-hearts-url="<%= hearts_path %>">
+
+  <div class="row feed-row">
+    <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 project" data-id="<%= project.id %>">
+        <div class="content">
+          <%= link_to project_path(project) do %>
+        <div class="content-overlay">
+        </div>
+            <div class="cover">
+            <%= cl_image_tag project.uploads.first.image, width: 380, height: 200, crop: :fill , secure: true, dpr: :auto, responsive: :true %>
+            </div>
+          <% end %>
+          <%= link_to project_path(project) do %>
+          <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">
+              <%= "#{project.name}" %>
+              </h3>
+              <p class="content-text">
+              <%= "#{project.designer}" %>
+              </p>
+          </div>
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+            <% if project.heart_id.present? %>
+            <span class="heart favorited" data-heart-id="<%= project.heart_id %>">
+              <i class="fa fa-heart"></i>
+            </span>
+          <% else %>
+            <span class="heart">
+              <i class="fa fa-heart-o"></i>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @projects.blank? %>
+  <h4>There are no projects containing the term <%= params[:search] %>.</h4>
+  <% end %>
+
+  <div class="row">
+    <%= paginate @projects, window: 2, params: {controller: 'pages', action: 'feed'} %>
+  </div>
+</div>
+</div>

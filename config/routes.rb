@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'pages#feed', as: 'feed'
   get 'sort_new', to: 'pages#sort_new', as: 'sort_new'
+  get 'liked', to: 'pages#liked', as: 'liked'
 
   get 'terms', to: 'pages#terms', as: 'terms'
   get 'about', to: 'pages#about', as: 'about'
