@@ -56,7 +56,11 @@
   <%= f.text_area :biography, rows: 5, cols: 35, :class => 'user-bio form' %>
   </div>
   </div>
-  <div class="col-xs-12 col-sm-8 col-md-3">
+  <div class="row">
+  <div class="col-xs-12 col-md-3">
+  <%= f.label :profile_picture, "Add a Profile Picture", :class => 'name' %>
+  </div>
+  <div class="col-xs-12 col-md-7">
     <div class="field">
         <%= f.cl_image_upload(:profile_picture, return_delete_token: true) %>
         <p style="opacity:.4"><i>File Types: jpeg / png / gif<br>Max File-Size 20MB</i></p>
@@ -68,6 +72,7 @@
       </div>
           <%= cloudinary_js_config %>
 
+  </div>
   </div>
   <br>
   <br>
