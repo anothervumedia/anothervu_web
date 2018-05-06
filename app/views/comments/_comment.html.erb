@@ -1,11 +1,16 @@
-<% if @comments.count >= 1 %>
-    <h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
-  <% else %>
-    <h4> Be the first to comment!</h4>
-<% end %>
 <% if user_signed_in? %>
-  <%= render 'comments/form'  %>
+    <% if @comments.count >= 1 %>
+        <h4> This project has <%= pluralize(@comments.count, "comment")%></h4>
+      <% else %>
+        <h4> Be the first to comment!</h4>
+    <% end %>
+      <%= render 'comments/form'  %>
+<% else %>
+    <h4>
+      <%= link_to "Sign In to Leave Comment!", new_user_session_path %>
+    </h4>
 <% end %>
+
 
 <ul class="scrolling-comments">
     <li>
