@@ -39,7 +39,7 @@
           <% else %>
               <span id="profile-picture"><a><img src="http://res.cloudinary.com/anothervu/image/upload/v1524770755/ptamql7tybhqhteeiibq.jpg" class="default-project-show"/></a></span>
           <% end %>
-          <%= user.email %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
+          <%= user.email %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), remote: true, :class=>"new-message" %>
         </div>
         <% end %>
       <% end %>
@@ -50,3 +50,9 @@
 <div class="current_conversation col-xs-9" style="color:black">
 </div>
 </div>
+
+<script>
+      $("#new-message").click(function() {
+        console.log('button clicked');
+    });
+</script>
