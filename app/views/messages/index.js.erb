@@ -1,1 +1,10 @@
 $(".current_conversation").fadeIn("slow").html("<%= escape_javascript(render 'index', locals: { :@message => @conversation.messages.new, :@messages => @conversation.messages }) %>");
+
+
+    $(".new-message").click(function(e) {
+      e.preventDefault();
+      // $.ajax({
+      // // validate and process form here
+      // success: $(".current_conversation").fadeIn("slow").html("<%= escape_javascript(render 'index', locals: { :@message => @conversation.messages.new, :@messages => @conversation.messages }) %>");
+    });
+
