@@ -10,13 +10,22 @@ AllCops:
     - Gemfile
     - 'lib/**/*'
     - 'bin/**/*'
+    - app/models/user.rb
+    - app/models/conversation.rb
+    - app/models/upload.rb
+    - app/models/project.rb
+    - app/models/message.rb
 
 Documentation:
   Enabled: false
 
+Metrics/LineLength:
+  Exclude:
+    - app/helpers/meta_tags_helper.rb
+    - app/helpers/application_helper.rb
+    - app/controllers/users_controller.rb
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Layout/IndentationConsistency:
-  Exclude:
-    - app/models/user.rb
+Style/StringLiterals:
+  Enabled: false
