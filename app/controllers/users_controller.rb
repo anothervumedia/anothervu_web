@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |format|
-        format.html # show.html.erb
-        format.js # show.js.erb
-        format.json { render json: @user }
+      format.html # show.html.erb
+      format.js # show.js.erb
+      format.json { render json: @user }
     end
   end
 
@@ -24,14 +24,13 @@ class UsersController < ApplicationController
       flash[:alert] = "Unable to update profile. #{@user.errors.full_messages.to_sentence}"
       redirect_to :edit
     end
-
   end
 
   def capitalize
-    if !@user.first_name.nil?
+    unless @user.first_name.nil?
       @user.first_name = @user.first_name.capitalize
     end
-    if !@user.last_name.nil?
+    unless @user.last_name.nil?
       @user.last_name = @user.last_name.capitalize
     end
   end
@@ -45,5 +44,4 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
-
 end
